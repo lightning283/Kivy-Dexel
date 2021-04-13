@@ -46,7 +46,7 @@ requirements = python3,kivy,kivymd
 #garden_requirements =
 
 # (str) Presplash of the application
-presplash.filename = %(source.dir)s/res/gtr.mp4
+presplash.filename = %(source.dir)s/res/python.png
 
 # (str) Icon of the application
 icon.filename = %(source.dir)s/res/icon.png
