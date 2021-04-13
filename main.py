@@ -4,7 +4,7 @@ from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton , MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 from screenz import screen_nav
-import subprocess
+
 
 class MenuScreen(Screen):
     pass
