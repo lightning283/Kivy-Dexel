@@ -16,10 +16,14 @@ class ProfileScreen(Screen):
 class AndroidScreen(Screen):
     pass
 
+class SocialMediaScreen(Screen):
+    pass
+
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name="menu"))
 sm.add_widget(ProfileScreen(name="screen1"))
 sm.add_widget(AndroidScreen(name="android"))
+sm.add_widget(SocialMediaScreen(name="socials"))
 
 class RezApp(MDApp):
     def build(self):

@@ -3,6 +3,7 @@ ScreenManager:
     MenuScreen:
     ProfileScreen:
     AndroidScreen:
+    SocialMediaScreen:
 
 <MenuScreen>:
     name: 'menu'
@@ -21,7 +22,10 @@ ScreenManager:
         on_press:
             import subprocess #to run any local commmands
             subprocess.call("" , shell=True)
-
+    MDFloatingActionButton:
+        icon :  "flash"
+        pos_hint: {'center_x':0.5,'center_y':0.4}
+        on_press: root.manager.current = 'socials'
 
 <ProfileScreen>:
     name: 'screen1'
@@ -41,5 +45,21 @@ ScreenManager:
     MDFloatingActionButton:
         icon :  "arrow-left"
         on_press: root.manager.current = 'menu'
+<SocialMediaScreen>:
+    name : "socials"
+    MDFloatingActionButton:
+        icon :  "youtube"
+        pos_hint: {'center_x':0.5,'center_y':0.4}
+        on_press:
+            import webbrowser
+            url = "www.youtube.com"
+            webbrowser.open(url)
 
+    MDFloatingActionButton:
+        icon :  "google"
+        pos_hint: {'center_x':0.5,'center_y':0.5}
+        on_press:
+            import webbrowser
+            url = "www.google.com"
+            webbrowser.open(url)        
 """
