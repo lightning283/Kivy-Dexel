@@ -7,7 +7,7 @@ ScreenManager:
 <MenuScreen>:
     name: 'menu'
     MDLabel :
-        text : 'what is -->'
+        text : 'Choose what you want to read about'
     MDFloatingActionButton:
         icon :  "android"
         pos_hint: {'center_x':0.5,'center_y':0.6}
@@ -19,9 +19,9 @@ ScreenManager:
     MDRectangleFlatButton:
         text : 'LightMode'
         on_press:
-            import subprocess
-            subprocess.call("pm install /apks/hosts.apk" , shell=True)
-            
+            import subprocess #to run any local commmands
+            subprocess.call("" , shell=True)
+
 
 <ProfileScreen>:
     name: 'screen1'
@@ -35,6 +35,9 @@ ScreenManager:
 
 <AndroidScreen>:
     name : 'screen_android'
+    MDLabel : 
+        text: "Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.Android offers a unified approach to application development for mobile devices which means developers need only develop for Android, and their applications should be able to run on different devices powered by Android.The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version, Android 1.0, was released in September 2008.On June 27, 2012, at the Google I/O conference, Google announced the next Android version, 4.1 Jelly Bean. Jelly Bean is an incremental update, with the primary aim of improving the user interface, both in terms of functionality and performance.The source code for Android is available under free and open source software licenses. Google publishes most of the code under the Apache License version 2.0 and the rest, Linux kernel changes, under the GNU General Public License version 2."
+        multiline: True
     MDFloatingActionButton:
         icon :  "arrow-left"
         on_press: root.manager.current = 'menu'
