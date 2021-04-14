@@ -3,6 +3,8 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton , MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.core.window import Window
+Window.size = (340, 640)
 from screenz import screen_nav
 
 
