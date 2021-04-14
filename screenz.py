@@ -36,7 +36,7 @@ ScreenManager:
     MDLabel :
         text : 'What is Python?'
         font_style : "H4"
-        pos_hint: {'center_x':0.6,'center_y':0.98}
+        pos_hint: {'center_x':0.6,'center_y':0.94}
         theme_text_color :'Custom'
         text_color : ( 224/255.0, 45/255.0, 60/255.0,1)
     MDLabel:
