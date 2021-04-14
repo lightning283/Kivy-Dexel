@@ -9,7 +9,6 @@ from screenz import screen_nav
 class MenuScreen(Screen):
     pass
 
-
 class ProfileScreen(Screen):
     pass
 

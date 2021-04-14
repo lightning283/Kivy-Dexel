@@ -40,26 +40,41 @@ ScreenManager:
 
 <AndroidScreen>:
     name : 'screen_android'
+    MDLabel:
+        text:"What Is Android?"
+        multiline : True
+        font_style: "H4"
+        pos_hint: {'center_x':0.6,'center_y':0.9}
     MDLabel : 
         text: "Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.Android offers a unified approach to application development for mobile devices which means developers need only develop for Android, and their applications should be able to run on different devices powered by Android.The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version, Android 1.0, was released in September 2008.On June 27, 2012, at the Google I/O conference, Google announced the next Android version, 4.1 Jelly Bean. Jelly Bean is an incremental update, with the primary aim of improving the user interface, both in terms of functionality and performance.The source code for Android is available under free and open source software licenses. Google publishes most of the code under the Apache License version 2.0 and the rest, Linux kernel changes, under the GNU General Public License version 2."
+        pos_hint: {'center_x':0.5,'center_y':0.4}
         multiline: True
     MDFloatingActionButton:
         icon :  "arrow-left"
         on_press: root.manager.current = 'menu'
 <SocialMediaScreen>:
     name : "socials"
+    MDLabel:
+        text:"Follow My Scoials ;)"
+        multiline : True
+        font_style: "H4"
+        pos_hint: {'center_x':0.6,'center_y':0.9}
     MDFloatingActionButton:
-        icon :  "Github"
+        icon :  "gitlab"
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press:
             import webbrowser
             url = "https://github.com/LIGHTNING283"
-            webbrowser.open(url)
+            webbrowser.open_new_tab(url)
     MDFloatingActionButton:
         icon :  "docker"
         pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press:
             import webbrowser
             url = "https://hub.docker.com/u/lightning283"
-            webbrowser.open(url)        
+            webbrowser.open_new_tab(url)
+
+    MDFloatingActionButton:
+        icon :  "subdirectory-arrow-left"     
+        on_press : root.manager.current = 'menu'
 """
