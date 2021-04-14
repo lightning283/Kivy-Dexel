@@ -8,7 +8,8 @@ ScreenManager:
 <MenuScreen>:
     name: 'menu'
     MDLabel :
-        text : 'Choose what you want to read about'
+        text : 'Click/Choose what you want to read about-->'
+        pos_hint: {'center_x':0.5,'center_y':0.9}
     MDFloatingActionButton:
         icon :  "android"
         pos_hint: {'center_x':0.5,'center_y':0.6}
@@ -18,7 +19,7 @@ ScreenManager:
         pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press: root.manager.current = 'screen1'
     MDRectangleFlatButton:
-        text : 'LightMode'
+        text : 'Python-Subprocess'
         on_press:
             import subprocess #to run any local commmands
             subprocess.call("" , shell=True)
