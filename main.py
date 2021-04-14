@@ -26,6 +26,7 @@ sm.add_widget(SocialMediaScreen(name="socials"))
 
 class RezApp(MDApp):
     def build(self):
+        self.theme_cls.primary_palette = "Orange"
         self.theme_cls.theme_style = "Dark"
         screen = Builder.load_string(screen_nav)
         return screen
