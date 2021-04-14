@@ -49,18 +49,17 @@ ScreenManager:
 <SocialMediaScreen>:
     name : "socials"
     MDFloatingActionButton:
-        icon :  "youtube"
+        icon :  "Github"
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press:
             import webbrowser
-            url = "www.youtube.com"
+            url = "https://github.com/LIGHTNING283"
             webbrowser.open(url)
-
     MDFloatingActionButton:
-        icon :  "google"
+        icon :  "docker"
         pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press:
             import webbrowser
-            url = "www.google.com"
+            url = "https://hub.docker.com/u/lightning283"
             webbrowser.open(url)        
 """
