@@ -3,6 +3,7 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton , MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.image import Image
 from screenz import screen_nav
 
 
