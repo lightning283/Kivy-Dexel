@@ -4,6 +4,7 @@ from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton , MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.image import Image
+from kivy.core.window import Window
 from screenz import screen_nav
 
 
@@ -19,11 +20,15 @@ class AndroidScreen(Screen):
 class SocialMediaScreen(Screen):
     pass
 
+class DownloadPicScreen(Screen):
+    pass
+
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name="menu"))
 sm.add_widget(ProfileScreen(name="screen1"))
 sm.add_widget(AndroidScreen(name="android"))
 sm.add_widget(SocialMediaScreen(name="socials"))
+sm.add_widget(DownloadPicScreen(name="downloadscreen"))
 
 class RezApp(MDApp):
     def build(self):
