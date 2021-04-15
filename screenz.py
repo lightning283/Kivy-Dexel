@@ -4,17 +4,18 @@ ScreenManager:
     ProfileScreen:
     AndroidScreen:
     SocialMediaScreen:
+    DownloadPicScreen:
 
 <MenuScreen>:
     name: 'menu'
     Image : 
-        source:'res/image_menu.jpg'    
-    MDLabel :
-        text : 'Click/Choose what you want to read about-->'
-        font_style : "H4"
-        pos_hint: {'center_x':0.5,'center_y':0.9}
-        theme_text_color :'Custom'
-        text_color : ( 224/255.0, 45/255.0, 60/255.0,1)
+        source:'res/image_space.jpg'    
+    # MDLabel :
+    #     text : 'Click/Choose what you want to read about-->'
+    #     font_style : "H4"
+    #     pos_hint: {'center_x':0.5,'center_y':0.9}
+    #     theme_text_color :'Custom'
+    #     text_color : ( 224/255.0, 45/255.0, 60/255.0,1)
     MDFloatingActionButton:
         icon :  "android"
         pos_hint: {'center_x':0.5,'center_y':0.6}
@@ -32,6 +33,11 @@ ScreenManager:
         icon :  "flash"
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press: root.manager.current = 'socials'
+    MDFloatingActionButton:
+        icon :  "camera-image"
+        pos_hint: {'center_x':0.5,'center_y':0.3}
+        on_press: root.manager.current = 'downloadscreen'
+
 
 <ProfileScreen>:
     name: 'screen1'
@@ -103,4 +109,46 @@ ScreenManager:
     MDFloatingActionButton:
         icon :  "subdirectory-arrow-left"     
         on_press : root.manager.current = 'menu'
+
+
+<DownloadPicScreen>:
+    name: "downloadscreen"
+    Image :
+        source : "res/image_nature.jpg"
+    Carousel:
+        MDFloatLayout:
+            MDRectangleFlatButton:
+                text : 'Swipe-->'
+                font_style : 'H4'
+                pos_hint: {"center_x": .5, "center_y": .9}
+            MDCard:
+                orientation: "vertical"
+                padding: "1dp"
+                size_hint: None, None
+                size: "280dp", "180dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Image :
+                    source : "res/card_kitty.jpg"    
+        MDFloatLayout:
+            MDCard:
+                orientation: "vertical"
+                padding: "1dp"
+                size_hint: None, None
+                size: "280dp", "180dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Image :
+                    source : "res/card_house.png"
+        MDFloatLayout:
+            MDCard:
+                orientation: "vertical"
+                padding: "1dp"
+                size_hint: None, None
+                size: "280dp", "180dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Image :
+                    source : "res/card_biker.jpg"
+
+    MDRectangleFlatButton:
+        text : 'Go-Back'
+        on_press: root.manager.current = 'menu'
 """
