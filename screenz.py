@@ -8,8 +8,19 @@ ScreenManager:
 
 <MenuScreen>:
     name: 'menu'
-    Image : 
-        source:'res/image_space.jpg'    
+    Video:
+        source : 'test.mp4'
+        state : 'play'
+        options : {'eos': 'loop'}
+        allow_stretch :True
+
+    # VideoPlayer:
+    #     source: 'test.avi'
+    #     state:'play'
+    #     options : {'eos': 'loop'}
+
+    # Image : 
+    #     source:'res/image_space.jpg'    
     # MDLabel :
     #     text : 'Click/Choose what you want to read about-->'
     #     font_style : "H4"
@@ -128,7 +139,13 @@ ScreenManager:
                 size: "280dp", "180dp"
                 pos_hint: {"center_x": .5, "center_y": .5}
                 Image :
-                    source : "res/card_kitty.jpg"    
+                    source : "res/card_kitty.jpg"  
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint_y: None
+                    size_hint_x: None
+                    width: self.parent.width
+                    height: self.parent.width/self.image_ratio  
         MDFloatLayout:
             MDCard:
                 orientation: "vertical"
@@ -138,6 +155,12 @@ ScreenManager:
                 pos_hint: {"center_x": .5, "center_y": .5}
                 Image :
                     source : "res/card_house.png"
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint_y: None
+                    size_hint_x: None
+                    width: self.parent.width
+                    height: self.parent.width/self.image_ratio
         MDFloatLayout:
             MDCard:
                 orientation: "vertical"
@@ -147,6 +170,12 @@ ScreenManager:
                 pos_hint: {"center_x": .5, "center_y": .5}
                 Image :
                     source : "res/card_biker.jpg"
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint_y: None
+                    size_hint_x: None
+                    width: self.parent.width
+                    height: self.parent.width/self.image_ratio
 
     MDRectangleFlatButton:
         text : 'Go-Back'
