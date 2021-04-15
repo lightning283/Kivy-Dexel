@@ -5,6 +5,8 @@ from kivymd.uix.button import MDFloatingActionButton , MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.image import Image
 from kivy.core.window import Window
+from kivy.uix.videoplayer import VideoPlayer
+from kivy.uix.video import Video
 from screenz import screen_nav
 
 
