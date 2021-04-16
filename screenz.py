@@ -8,8 +8,10 @@ ScreenManager:
 
 <MenuScreen>:
     name: 'menu'
+    Image :
+        source:'res/image_space.jpg'
     Video:
-        source : 'test.mp4'
+        source : 'obito.mp4'
         state : 'play'
         options : {'eos': 'loop'}
         allow_stretch :True
@@ -18,9 +20,6 @@ ScreenManager:
     #     source: 'test.avi'
     #     state:'play'
     #     options : {'eos': 'loop'}
-
-    # Image : 
-    #     source:'res/image_space.jpg'    
     # MDLabel :
     #     text : 'Click/Choose what you want to read about-->'
     #     font_style : "H4"
