@@ -25,7 +25,7 @@ function docs() {
                     2>&1 >/dev/tty)
 
     case $CHOICE in
-        1)clear && apt-get install -y python3-pip && pip3 install wget pytube pillow kivy kivymd ffpyplayer && bash /KivyDexel/config/config.sh;;
+        1)clear && apt-get install -y python3-pip libmtdev-dev libgl1-mesa-glx  && pip3 install wget pytube pillow kivy kivymd ffpyplayer && bash /KivyDexel/config/config.sh;;
         2)clear && apt-get install firefox && bash /KivyDexel/config/config.sh;;
         3)clear && apt-get update && bash /KivyDexel/config/config.sh;;
         4)clear && docs && bash /KivyDexel/config/config.sh;;
