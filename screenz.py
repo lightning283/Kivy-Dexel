@@ -1,99 +1,234 @@
 screen_nav = """
 ScreenManager:
     MenuScreen:
-    ProfileScreen:
-    AndroidScreen:
+    WeebScreen:
     SocialMediaScreen:
-    DownloadPicScreen:
-    NavScreenz:
+    InfoScreen:
+    AndroidScreen:
+    PythonScreen:
 
-<MenuScreen>:
-    name: 'menu'
+<MenuScreen>:##########################################################################################################################
+    name : 'menuscreen'
     Image :
-        source:'res/image_space.jpg'
+        source:'res/image_anime.jpg'
     Video:
-        id : vidd
-        source : 'vid/obito.mp4'
+        id : vid_anime_amv
+        source : 'vid/anime_amv.mp4'
         state : 'play'
         options : {'eos': 'loop'}
-        allow_stretch :True
-    MDFloatingActionButton:
-        icon :  "android"
-        pos_hint: {'center_x':0.5,'center_y':0.6}
-        on_press: root.manager.current = 'screen_android'
-    MDFloatingActionButton:
-        icon :  "language-python"
-        pos_hint: {'center_x':0.5,'center_y':0.5}
-        on_press: root.manager.current = 'screen1'
-    MDFloatingActionButton:
-        icon :  "flash"
-        pos_hint: {'center_x':0.5,'center_y':0.4}
-        on_press: root.manager.current = 'socials'
-    MDFloatingActionButton:
-        icon :  "camera-image"
-        pos_hint: {'center_x':0.5,'center_y':0.3}
-        on_press: root.manager.current = 'downloadscreen'
-    MDRectangleFlatButton:
-        text : 'stop'
-        width : dp(45)
+        allow_stretch : True
+    MDIconButton:
+        icon : 'menu'
+        pos_hint : {'center_x':.05 , 'center_y': .98}
+        on_press : test_nav.toggle_nav_drawer()
+
+
+    MDIconButton:
+        icon : 'play'
+        pos_hint : {'center_x':.16 , 'center_y': .02}
         on_press :
-            setattr(vidd, 'source', 'vid/obito.mp4')
-            setattr(vidd, 'state', 'stop')
-    MDRectangleFlatButton:
-        text : 'play'
-        pos_hint: {'center_x':0.4,'center_y':0.03}
-        width : dp(45)
+            setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
+            setattr(vid_anime_amv, 'state', 'play')
+    MDIconButton:
+        icon : 'pause'
+        pos_hint : {'center_x':.05 , 'center_y': .02}
         on_press :
-            setattr(vidd, 'source', 'vid/obito.mp4')
-            setattr(vidd, 'state', 'play')
+            setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
+            setattr(vid_anime_amv, 'state', 'stop')        
 
-    MDRectangleFlatButton:
-        text : 'NAVVVV'
-        pos_hint: {'center_x':0.4,'center_y':0.2}
-        on_press: root.manager.current = 'navv'
+    BoxLayout:
+        orientation: 'vertical'
+        Widget:
+    MDNavigationDrawer:
+        id : test_nav 
+        ScrollView:             
+            MDList:
+                OneLineIconListItem:
+                    text: "Menu"
+                    on_press :
+                        root.manager.current = 'menuscreen'
+                    IconLeftWidget:
+                        icon: "menu-open"
+                            
+                                                                        
+                OneLineIconListItem:
+                    text: "WeebHub"
+                    on_press : 
+                        root.manager.current = 'weebscreen'
+                        setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
+                        setattr(vid_anime_amv, 'state', 'stop')
+                    IconLeftWidget:
+                        icon: "heart"
+                                    
+                           
+                OneLineIconListItem:
+                    text: "Information"
+                    on_press : 
+                        root.manager.current = 'infoscreen'
+                    IconLeftWidget:
+                        icon: "information"
 
-<ProfileScreen>:
-    name: 'screen1'
+
+                OneLineIconListItem:
+                    text: "Credits"
+                    on_press : 
+                        root.manager.current = 'socials'
+                    IconLeftWidget:
+                        icon: "human-greeting"
+                OneLineIconListItem:
+                    text : 'Light/Dark-mode'        
+                    MDSwitch:
+                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
+                        active : True
+                        on_active : app.check(*args)
+    
+    MDFloatingActionButtonSpeedDial:
+        data : app.data
+        root_button_anim: True                                                    
+
+
+<WeebScreen>:##########################################################################################################################
+    name: "weebscreen"
     Image :
-        source:'res/image_python.jpg'
-    MDLabel :
-        text : 'What is Python?'
-        font_style : "H4"
-        pos_hint: {'center_x':0.6,'center_y':0.94}
-        theme_text_color :'Custom'
-        text_color : ( 224/255.0, 45/255.0, 60/255.0,1)
-    MDLabel:
-        text: "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available in source or binary form without charge for all major platforms, and can be freely distributed.Often, programmers fall in love with Python because of the increased productivity it provides. Since there is no compilation step, the edit-test-debug cycle is incredibly fast. Debugging Python programs is easy: a bug or bad input will never cause a segmentation fault. Instead, when the interpreter discovers an error, it raises an exception. When the program doesn't catch the exception, the interpreter prints a stack trace. A source level debugger allows inspection of local and global variables, evaluation of arbitrary expressions, setting breakpoints, stepping through the code a line at a time, and so on. The debugger is written in Python itself, testifying to Python's introspective power. On the other hand, often the quickest way to debug a program is to add a few print statements to the source: the fast edit-test-debug cycle makes this simple approach very effective. "
-        multiline : True
-        font_style : "Body2"
-        pos_hint: {'center_x':0.5,'center_y':0.48}
-        theme_text_color :'Custom'
-        text_color : ( 249/255.0, 243/255.0, 83/255.0,1)
-    MDRectangleFlatButton:
-        text : 'Go-Back'
-        on_press: root.manager.current = 'menu'
+        source : "res/image_anime_2.jpg"
+    Carousel:
+        MDFloatLayout:
+            MDRectangleFlatIconButton:
+                icon : 'arrow-right'
+                text : 'Swipe-->>'
+                font_style : 'H4'
+                pos_hint: {"center_x": .5, "center_y": .97}
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: "280dp", "533dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Video:
+                    id : vid_anime_amv
+                    source : 'vid/anime_amv.mp4'
+                    allow_stretch :True
+                    options : {'eos': 'stop'}
 
-<AndroidScreen>:
-    name : 'screen_android'
-    Image :
-        source:'res/image_android.jpg'
-    MDLabel:
-        text:"What Is Android?"
-        multiline : True
-        font_style: "H4"
-        theme_text_color :'Custom'
-        text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
-        pos_hint: {'center_x':0.6,'center_y':0.94}
-    MDLabel :
-        text: "Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.Android offers a unified approach to application development for mobile devices which means developers need only develop for Android, and their applications should be able to run on different devices powered by Android.The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version, Android 1.0, was released in September 2008.On June 27, 2012, at the Google I/O conference, Google announced the next Android version, 4.1 Jelly Bean. Jelly Bean is an incremental update, with the primary aim of improving the user interface, both in terms of functionality and performance.The source code for Android is available under free and open source software licenses. Google publishes most of the code under the Apache License version 2.0 and the rest, Linux kernel changes, under the GNU General Public License version 2."
-        pos_hint: {'center_x':0.5,'center_y':0.47}
-        multiline: True
-        theme_text_color :'Custom'
-        text_color : ( 249/255.0, 124/255.0, 30/255.0,1)
-    MDFloatingActionButton:
-        icon :  "arrow-left"
-        on_press: root.manager.current = 'menu'
-<SocialMediaScreen>:
+
+                MDRoundFlatIconButton:
+                    text : 'Tap To Play'
+                    icon : 'play'
+                    pos_hint: {'center_x': .5}
+                    on_press:
+                        setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
+                        setattr(vid_anime_amv, 'state', 'play')
+
+
+        MDFloatLayout:
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: "280dp", "535dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Video:
+                    id : vid_obito
+                    source : 'vid/obito.mp4'
+                    allow_stretch :True
+                    options : {'eos': 'stop'}
+
+
+                MDRoundFlatIconButton:
+                    text : 'Tap To Play'
+                    icon : 'play'
+                    pos_hint: {'center_x': .5}
+                    on_press:
+                        setattr(vid_obito, 'source', 'vid/obito.mp4')
+                        setattr(vid_obito, 'state', 'play')
+        MDFloatLayout:
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: "280dp", "535dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Video:
+                    id : vid_rinne
+                    source : 'vid/naruto_rinne.mp4'
+                    allow_stretch :True
+                    options : {'eos': 'stop'}
+
+
+                MDRoundFlatIconButton:
+                    text : 'Tap To Play'
+                    icon : 'play'
+                    pos_hint: {'center_x': .5}
+                    on_press:
+                        setattr(vid_rinne, 'source', 'vid/naruto_rinne.mp4')
+                        setattr(vid_rinne, 'state', 'play')
+        MDFloatLayout:
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: "280dp", "534dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Video:
+                    id : naruto_minato_obito
+                    source : 'vid/naruto_minato_obito.mp4'
+                    allow_stretch :True
+                    options : {'eos': 'stop'}
+
+
+                MDRoundFlatIconButton:
+                    text : 'Tap To Play'
+                    icon : 'play'
+                    pos_hint: {'center_x': .5}
+                    on_press:
+                        setattr(naruto_minato_obito, 'source', 'vid/naruto_minato_obito.mp4')
+                        setattr(naruto_minato_obito, 'state', 'play')            
+
+    MDIconButton:
+        icon :  "arrow-left-thick"
+        on_press : root.manager.current = 'menuscreen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        Widget:
+    MDNavigationDrawer:
+        id : test_nav 
+        ScrollView:             
+            MDList:
+                OneLineIconListItem:
+                    text: "Menu"
+                    on_press :
+                        root.manager.current = 'menuscreen'
+                    IconLeftWidget:
+                        icon: "menu-open"
+                            
+                                                                        
+                OneLineIconListItem:
+                    text: "WeebHub"
+                    on_press : 
+                        root.manager.current = 'weebscreen'
+                    IconLeftWidget:
+                        icon: "heart"
+                                    
+                           
+                OneLineIconListItem:
+                    text: "Information"
+                    on_press : 
+                        root.manager.current = 'infoscreen'
+                    IconLeftWidget:
+                        icon: "information"
+
+
+                OneLineIconListItem:
+                    text: "Credits"
+                    on_press : 
+                        root.manager.current = 'socials'
+                    IconLeftWidget:
+                        icon: "human-greeting"
+                OneLineIconListItem:
+                    text : 'Light/Dark-mode'        
+                    MDSwitch:
+                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
+                        active : True
+                        on_active : app.check(*args)
+
+<SocialMediaScreen>:##########################################################################################################################
     name : "socials"
     Image :
         source:'res/image_social.jpg'
@@ -119,94 +254,161 @@ ScreenManager:
             url = "https://hub.docker.com/u/lightning283"
             webbrowser.open_new_tab(url)
 
-    MDFloatingActionButton:
-        icon :  "subdirectory-arrow-left"
-        on_press : root.manager.current = 'menu'
+    MDIconButton:
+        icon :  "arrow-left-thick"
+        on_press : root.manager.current = 'menuscreen'
 
-
-<DownloadPicScreen>:
-    name: "downloadscreen"
-    Image :
-        source : "res/image_nature.jpg"
-    Carousel:
-        MDFloatLayout:
-            MDRectangleFlatButton:
-                text : 'Swipe-->'
-                font_style : 'H4'
-                pos_hint: {"center_x": .5, "center_y": .9}
-            MDCard:
-                orientation: "vertical"
-                padding: "1dp"
-                size_hint: None, None
-                size: "280dp", "180dp"
-                pos_hint: {"center_x": .5, "center_y": .5}
-                Video:
-                    id : vid
-                    source : 'vid/anime_amv.mp4'
-                    allow_stretch :True
-                    options : {'eos': 'stop'}
-
-
-        MDFloatLayout:
-            MDCard:
-                orientation: "vertical"
-                padding: "1dp"
-                size_hint: None, None
-                size: "280dp", "550dp"
-                pos_hint: {"center_x": .5, "center_y": .5}
-                Video:
-                    id : vid
-                    source : 'vid/naruto_rinne.mp4'
-                    allow_stretch :True
-                    options : {'eos': 'stop'}
-
-                MDRoundFlatButton:
-                    text: "Tap to Start"
-                    pos_hint: {'center_x': .5}
-                    on_release:
-                        setattr(vid, 'source', 'vid/naruto_rinne.mp4')
-                        setattr(vid, 'state', 'play')
-
-
-
-                # Image :
-                #     source : "res/card_house.png"
-                #     allow_stretch: True
-                #     keep_ratio: True
-                #     size_hint_y: None
-                #     size_hint_x: None
-                #     width: self.parent.width
-                #     height: self.parent.width/self.image_ratio
-        MDFloatLayout:
-            MDCard:
-                orientation: "vertical"
-                padding: "1dp"
-                size_hint: None, None
-                size: "280dp", "180dp"
-                pos_hint: {"center_x": .5, "center_y": .5}
-                Image :
-                    source : "res/card_biker.jpg"
-                    allow_stretch: True
-                    keep_ratio: True
-                    size_hint_y: None
-                    size_hint_x: None
-                    width: self.parent.width
-                    height: self.parent.width/self.image_ratio
-
-    MDRectangleFlatButton:
-        text : 'Go-Back'
-        on_press: root.manager.current = 'menu'
-
-<NavScreenz>:
-    name : 'navv'
     BoxLayout:
-        orientation : 'vertical'
-        MDIconButton:
-            icon : 'menu'
-            on_press : nav_drawer.toggle_nav_drawer()
-        MDNavigationDrawer:
-            id : nav_drawer
+        orientation: 'vertical'
+        Widget:
+    MDNavigationDrawer:
+        id : test_nav 
+        ScrollView:             
+            MDList:
+                OneLineIconListItem:
+                    text: "Menu"
+                    on_press :
+                        root.manager.current = 'menuscreen'
+                    IconLeftWidget:
+                        icon: "menu-open"
+                            
+                                                                        
+                OneLineIconListItem:
+                    text: "WeebHub"
+                    on_press : 
+                        root.manager.current = 'weebscreen'
+                    IconLeftWidget:
+                        icon: "heart"
+                                    
+                           
+                OneLineIconListItem:
+                    text: "Information"
+                    on_press : 
+                        root.manager.current = 'infoscreen'
+                    IconLeftWidget:
+                        icon: "information"
+
+
+                OneLineIconListItem:
+                    text: "Credits"
+                    on_press : 
+                        root.manager.current = 'socials'
+                    IconLeftWidget:
+                        icon: "human-greeting"
+                OneLineIconListItem:
+                    text : 'Light/Dark-mode'        
+                    MDSwitch:
+                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
+                        active : True
+                        on_active : app.check(*args)  
+
+<InfoScreen>:######################################################################################################################
+    name : 'infoscreen'
+    Image:
+        source : 'res/image_warrior.jpg'
+    MDIconButton:
+        icon : 'menu'
+        pos_hint : {'center_x':.05 , 'center_y': .98}
+        on_press : test_nav.toggle_nav_drawer()    
+    MDRectangleFlatIconButton:
+        text : 'About Android'
+        icon : 'android'
+        pos_hint : {'center_x': .5 , 'center_y': .5}
+        on_press : root.manager.current = 'screen_android'
 
 
 
+    MDRectangleFlatIconButton:
+        text : 'About Python'
+        icon: 'language-python'
+        pos_hint : {'center_x': .5 , 'center_y': .4}
+        on_press : root.manager.current = 'pythonscreen'
+
+
+
+    MDNavigationDrawer:
+        id : test_nav 
+        ScrollView:             
+            MDList:
+                OneLineIconListItem:
+                    text: "Menu"
+                    on_press :
+                        root.manager.current = 'menuscreen'
+                    IconLeftWidget:
+                        icon: "menu-open"
+                            
+                                                                        
+                OneLineIconListItem:
+                    text: "WeebHub"
+                    on_press : 
+                        root.manager.current = 'weebscreen'
+                    IconLeftWidget:
+                        icon: "heart"
+                                    
+                           
+                OneLineIconListItem:
+                    text: "Information"
+                    on_press : 
+                        root.manager.current = 'infoscreen'
+                    IconLeftWidget:
+                        icon: "information"
+
+
+                OneLineIconListItem:
+                    text: "Credits"
+                    on_press : 
+                        root.manager.current = 'socials'
+                    IconLeftWidget:
+                        icon: "human-greeting"
+                OneLineIconListItem:
+                    text : 'Light/Dark-mode'        
+                    MDSwitch:
+                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
+                        active : True
+                        on_active : app.check(*args)    
+
+
+<AndroidScreen>:#####################################################################################################################
+    name : 'screen_android'
+    Image : 
+        source:'res/image_android.jpg'
+    MDLabel:
+        text:"What Is Android?"
+        multiline : True
+        font_style: "H4"
+        theme_text_color :'Custom'
+        text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
+        pos_hint: {'center_x':0.6,'center_y':0.94}
+    MDLabel : 
+        text: "Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.Android offers a unified approach to application development for mobile devices which means developers need only develop for Android, and their applications should be able to run on different devices powered by Android.The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version, Android 1.0, was released in September 2008.On June 27, 2012, at the Google I/O conference, Google announced the next Android version, 4.1 Jelly Bean. Jelly Bean is an incremental update, with the primary aim of improving the user interface, both in terms of functionality and performance.The source code for Android is available under free and open source software licenses. Google publishes most of the code under the Apache License version 2.0 and the rest, Linux kernel changes, under the GNU General Public License version 2."
+        pos_hint: {'center_x':0.5,'center_y':0.47}
+        multiline: True
+        theme_text_color :'Custom'
+        text_color : ( 249/255.0, 124/255.0, 30/255.0,1)
+    MDIconButton:
+        icon :  "arrow-left-thick"
+        on_press : root.manager.current = 'infoscreen'
+
+
+
+<PythonScreen>:
+    name: 'pythonscreen'
+    Image : 
+        source:'res/image_python.jpg'
+    MDLabel :
+        text : 'What is Python?'
+        font_style : "H4"
+        pos_hint: {'center_x':0.6,'center_y':0.94}
+        theme_text_color :'Custom'
+        text_color : ( 224/255.0, 45/255.0, 60/255.0,1)
+    MDLabel:
+        text: "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available in source or binary form without charge for all major platforms, and can be freely distributed.Often, programmers fall in love with Python because of the increased productivity it provides. Since there is no compilation step, the edit-test-debug cycle is incredibly fast. Debugging Python programs is easy: a bug or bad input will never cause a segmentation fault. Instead, when the interpreter discovers an error, it raises an exception. When the program doesn't catch the exception, the interpreter prints a stack trace. A source level debugger allows inspection of local and global variables, evaluation of arbitrary expressions, setting breakpoints, stepping through the code a line at a time, and so on. The debugger is written in Python itself, testifying to Python's introspective power. On the other hand, often the quickest way to debug a program is to add a few print statements to the source: the fast edit-test-debug cycle makes this simple approach very effective. "
+        multiline : True
+        font_style : "Body2"
+        pos_hint: {'center_x':0.5,'center_y':0.48}
+        theme_text_color :'Custom'
+        text_color : ( 249/255.0, 243/255.0, 83/255.0,1)
+    MDIconButton:
+        icon :  "arrow-left-thick"
+        on_press : root.manager.current = 'infoscreen'
 """
