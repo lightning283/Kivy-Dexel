@@ -240,7 +240,7 @@ ScreenManager:
         font_style: "H4"
         pos_hint: {'center_x':0.6,'center_y':0.9}
     MDFloatingActionButton:
-        icon :  "gitlab"
+        icon :  "github-circle"
         pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press:
             import webbrowser
