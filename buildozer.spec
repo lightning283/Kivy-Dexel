@@ -28,7 +28,7 @@ source.include_exts = py,png,jpg,kv,atlas,mp4
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 5.0
+version = 3.0
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -49,7 +49,7 @@ requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs
 presplash.filename = %(source.dir)s/res/python.jpg
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/res/icon.png
+icon.filename = %(source.dir)s/res/icon_1.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -75,7 +75,7 @@ osx.kivy_version = 1.9.1
 #
 
 # (bool) Indicate if the application should be fullscreen or not
-fullscreen = 0
+fullscreen = 1
 
 # (string) Presplash background color (for new android toolchain)
 # Supported formats are: #RRGGBB #AARRGGBB or one of the following names:
