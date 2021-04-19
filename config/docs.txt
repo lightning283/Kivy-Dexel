@@ -1,0 +1,15 @@
+If you want to run Gui applications on this container,
+run this command in host machine;
+
+xauth list
+
+now copy the result of this aka cookie..then;
+run this command in host machine;
+
+docker run -it --net=host -e DISPLAY  -v /tmp/.X11-unix lightning283/kivy-dexel
+
+Now in this container run;
+
+xauth add (without brackets xD ,the text you copied or aka cookie)
+
+Now All Done!! Enjoy
