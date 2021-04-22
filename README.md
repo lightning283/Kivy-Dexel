@@ -5,9 +5,8 @@ A Android Apk Written in Python-kivy , Kivymd.
 -  1.1 -> dexel-1.0-x86_64
 -  1.2 -> dexel-1.0-arm64-v8a
 # Docker Container
--  There is now a docker conainer for Dexel!!
+-  There is now a docker Container for Dexel!!
 -  Get is from here https://hub.docker.com/u/lightning283
-
 # Pyinstaller-Linux
 -  check Releases!!
 # GoodBye Dexel..
