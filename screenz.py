@@ -182,7 +182,7 @@ ScreenManager:
 
     MDIconButton:
         icon :  "arrow-left-thick"
-        on_press : root.manager.current = 'menuscreen'
+        on_press : test_nav.set_state("open")
 
     BoxLayout:
         orientation: 'vertical'
@@ -240,7 +240,7 @@ ScreenManager:
         font_style: "H4"
         pos_hint: {'center_x':0.6,'center_y':0.9}
     MDFloatingActionButton:
-        icon :  "github-circle"
+        icon :  "github"
         pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press:
             import webbrowser
@@ -256,7 +256,7 @@ ScreenManager:
 
     MDIconButton:
         icon :  "arrow-left-thick"
-        on_press : root.manager.current = 'menuscreen'
+        on_press : test_nav.set_state("open")
 
     BoxLayout:
         orientation: 'vertical'
@@ -309,7 +309,7 @@ ScreenManager:
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.toggle_nav_drawer()
+        on_press : test_nav.set_state("open")
     MDRectangleFlatIconButton:
         text : 'About Android'
         icon : 'android'

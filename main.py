@@ -1,4 +1,5 @@
 #!/bin/python
+import os
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton , MDRectangleFlatButton , MDIconButton
@@ -9,7 +10,7 @@ from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.theming import ThemableBehavior
 from kivymd.uix.list import MDList
-from kivy.core.window import Window 
+from kivy.core.window import Window
 from screenz import screen_nav
 class MenuScreen(Screen):
     pass
@@ -41,7 +42,7 @@ sm.add_widget(PythonScreen(name='pythonscreen'))
 class RezApp(MDApp):
 
     data = {
-        'language-python': 'Built with :'
+        'Built with :': 'language-python'
             }
     def build(self):
         self.theme_cls.primary_palette = "Yellow"
@@ -54,5 +55,6 @@ class RezApp(MDApp):
         if value:
             self.theme_cls.theme_style = "Dark"
         else:
-            self.theme_cls.theme_style = "Light"   
+            self.theme_cls.theme_style = "Light"
+os.system("rm -rf __pycache__")# removes the pycache dir,annoying!!
 RezApp().run()
