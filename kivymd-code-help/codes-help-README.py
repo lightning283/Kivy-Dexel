@@ -38,4 +38,6 @@ requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs
 #buildozer required permissions.
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 
+# Here is the compilation code for pyinstaller for a linux platform
+pyinstaller --noconfirm --onefile --windowed --hidden-import "kivymd pillow" --collect-submodules "kivy" --collect-submodules "kivymd" --collect-submodules "ffpyplayer" --collect-submodules "gstreamer" --collect-submodules "ffpyplayer_codecs" --collect-submodules "pillow"  "/home/lightning/Documents/compiler-zone/dexel/main.py"
 
