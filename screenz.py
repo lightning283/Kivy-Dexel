@@ -20,7 +20,7 @@ ScreenManager:
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.toggle_nav_drawer()
+        on_press : test_nav.set_state("open")
 
 
     MDIconButton:
@@ -34,14 +34,14 @@ ScreenManager:
         pos_hint : {'center_x':.05 , 'center_y': .02}
         on_press :
             setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
-            setattr(vid_anime_amv, 'state', 'stop')        
+            setattr(vid_anime_amv, 'state', 'stop')
 
     BoxLayout:
         orientation: 'vertical'
         Widget:
     MDNavigationDrawer:
-        id : test_nav 
-        ScrollView:             
+        id : test_nav
+        ScrollView:
             MDList:
                 OneLineIconListItem:
                     text: "Menu"
@@ -49,21 +49,21 @@ ScreenManager:
                         root.manager.current = 'menuscreen'
                     IconLeftWidget:
                         icon: "menu-open"
-                            
-                                                                        
+
+
                 OneLineIconListItem:
                     text: "WeebHub"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'weebscreen'
                         setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
                         setattr(vid_anime_amv, 'state', 'stop')
                     IconLeftWidget:
                         icon: "heart"
-                                    
-                           
+
+
                 OneLineIconListItem:
                     text: "Information"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'infoscreen'
                     IconLeftWidget:
                         icon: "information"
@@ -71,20 +71,20 @@ ScreenManager:
 
                 OneLineIconListItem:
                     text: "Credits"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'socials'
                     IconLeftWidget:
                         icon: "human-greeting"
                 OneLineIconListItem:
-                    text : 'Light/Dark-mode'        
+                    text : 'Light/Dark-mode'
                     MDSwitch:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
                         on_active : app.check(*args)
-    
+
     MDFloatingActionButtonSpeedDial:
         data : app.data
-        root_button_anim: True                                                    
+        root_button_anim: True
 
 
 <WeebScreen>:##########################################################################################################################
@@ -178,7 +178,7 @@ ScreenManager:
                     pos_hint: {'center_x': .5}
                     on_press:
                         setattr(naruto_minato_obito, 'source', 'vid/naruto_minato_obito.mp4')
-                        setattr(naruto_minato_obito, 'state', 'play')            
+                        setattr(naruto_minato_obito, 'state', 'play')
 
     MDIconButton:
         icon :  "arrow-left-thick"
@@ -188,8 +188,8 @@ ScreenManager:
         orientation: 'vertical'
         Widget:
     MDNavigationDrawer:
-        id : test_nav 
-        ScrollView:             
+        id : test_nav
+        ScrollView:
             MDList:
                 OneLineIconListItem:
                     text: "Menu"
@@ -197,19 +197,19 @@ ScreenManager:
                         root.manager.current = 'menuscreen'
                     IconLeftWidget:
                         icon: "menu-open"
-                            
-                                                                        
+
+
                 OneLineIconListItem:
                     text: "WeebHub"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'weebscreen'
                     IconLeftWidget:
                         icon: "heart"
-                                    
-                           
+
+
                 OneLineIconListItem:
                     text: "Information"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'infoscreen'
                     IconLeftWidget:
                         icon: "information"
@@ -217,12 +217,12 @@ ScreenManager:
 
                 OneLineIconListItem:
                     text: "Credits"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'socials'
                     IconLeftWidget:
                         icon: "human-greeting"
                 OneLineIconListItem:
-                    text : 'Light/Dark-mode'        
+                    text : 'Light/Dark-mode'
                     MDSwitch:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
@@ -262,8 +262,8 @@ ScreenManager:
         orientation: 'vertical'
         Widget:
     MDNavigationDrawer:
-        id : test_nav 
-        ScrollView:             
+        id : test_nav
+        ScrollView:
             MDList:
                 OneLineIconListItem:
                     text: "Menu"
@@ -271,19 +271,19 @@ ScreenManager:
                         root.manager.current = 'menuscreen'
                     IconLeftWidget:
                         icon: "menu-open"
-                            
-                                                                        
+
+
                 OneLineIconListItem:
                     text: "WeebHub"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'weebscreen'
                     IconLeftWidget:
                         icon: "heart"
-                                    
-                           
+
+
                 OneLineIconListItem:
                     text: "Information"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'infoscreen'
                     IconLeftWidget:
                         icon: "information"
@@ -291,16 +291,16 @@ ScreenManager:
 
                 OneLineIconListItem:
                     text: "Credits"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'socials'
                     IconLeftWidget:
                         icon: "human-greeting"
                 OneLineIconListItem:
-                    text : 'Light/Dark-mode'        
+                    text : 'Light/Dark-mode'
                     MDSwitch:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
-                        on_active : app.check(*args)  
+                        on_active : app.check(*args)
 
 <InfoScreen>:######################################################################################################################
     name : 'infoscreen'
@@ -309,7 +309,7 @@ ScreenManager:
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.toggle_nav_drawer()    
+        on_press : test_nav.toggle_nav_drawer()
     MDRectangleFlatIconButton:
         text : 'About Android'
         icon : 'android'
@@ -327,8 +327,8 @@ ScreenManager:
 
 
     MDNavigationDrawer:
-        id : test_nav 
-        ScrollView:             
+        id : test_nav
+        ScrollView:
             MDList:
                 OneLineIconListItem:
                     text: "Menu"
@@ -336,19 +336,19 @@ ScreenManager:
                         root.manager.current = 'menuscreen'
                     IconLeftWidget:
                         icon: "menu-open"
-                            
-                                                                        
+
+
                 OneLineIconListItem:
                     text: "WeebHub"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'weebscreen'
                     IconLeftWidget:
                         icon: "heart"
-                                    
-                           
+
+
                 OneLineIconListItem:
                     text: "Information"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'infoscreen'
                     IconLeftWidget:
                         icon: "information"
@@ -356,21 +356,21 @@ ScreenManager:
 
                 OneLineIconListItem:
                     text: "Credits"
-                    on_press : 
+                    on_press :
                         root.manager.current = 'socials'
                     IconLeftWidget:
                         icon: "human-greeting"
                 OneLineIconListItem:
-                    text : 'Light/Dark-mode'        
+                    text : 'Light/Dark-mode'
                     MDSwitch:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
-                        on_active : app.check(*args)    
+                        on_active : app.check(*args)
 
 
 <AndroidScreen>:#####################################################################################################################
     name : 'screen_android'
-    Image : 
+    Image :
         source:'res/image_android.jpg'
     MDLabel:
         text:"What Is Android?"
@@ -379,7 +379,7 @@ ScreenManager:
         theme_text_color :'Custom'
         text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
         pos_hint: {'center_x':0.6,'center_y':0.94}
-    MDLabel : 
+    MDLabel :
         text: "Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.Android offers a unified approach to application development for mobile devices which means developers need only develop for Android, and their applications should be able to run on different devices powered by Android.The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version, Android 1.0, was released in September 2008.On June 27, 2012, at the Google I/O conference, Google announced the next Android version, 4.1 Jelly Bean. Jelly Bean is an incremental update, with the primary aim of improving the user interface, both in terms of functionality and performance.The source code for Android is available under free and open source software licenses. Google publishes most of the code under the Apache License version 2.0 and the rest, Linux kernel changes, under the GNU General Public License version 2."
         pos_hint: {'center_x':0.5,'center_y':0.47}
         multiline: True
@@ -393,7 +393,7 @@ ScreenManager:
 
 <PythonScreen>:
     name: 'pythonscreen'
-    Image : 
+    Image :
         source:'res/image_python.jpg'
     MDLabel :
         text : 'What is Python?'
