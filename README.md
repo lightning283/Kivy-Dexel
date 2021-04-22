@@ -7,5 +7,8 @@ A Android Apk Written in Python-kivy , Kivymd.
 # Docker Container
 -  There is now a docker conainer for Dexel!!
 -  Get is from here https://hub.docker.com/u/lightning283
+
+# Pyinstaller-Linux
+-  check Releases!!
 # GoodBye Dexel..
--  Stopped development at 2021/4/20
+-  Stopped development at 2021/4/22
