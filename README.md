@@ -9,5 +9,3 @@ A Android Apk Written in Python-kivy , Kivymd.
 -  Get is from here https://hub.docker.com/u/lightning283
 # Pyinstaller-Linux
 -  check Releases!!
-# GoodBye Dexel..
--  Stopped development at 2021/4/22
