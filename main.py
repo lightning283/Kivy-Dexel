@@ -10,8 +10,6 @@ from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.theming import ThemableBehavior
 from kivymd.uix.list import MDList
-from kivy.core.window import Window
-Window.size = (325, 640)
 from screenz import screen_nav
 class MenuScreen(Screen):
     pass
