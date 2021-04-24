@@ -10,6 +10,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.list import MDList
 from plyer import battery,vibrator,brightness,tts
 from kivymd.uix.dialog import MDDialog
+from kivy.uix.effectwidget import EffectWidget
 from screenz import screen_nav
 class MenuScreen(Screen):
     pass
@@ -31,6 +32,9 @@ class PythonScreen(Screen):
 
 class FunScreen(Screen):
 	pass
+class AboutScreen(Screen):
+    pass
+
 
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name="menuscreen"))
@@ -40,6 +44,7 @@ sm.add_widget(InfoScreen(name='infoscreen'))
 sm.add_widget(AndroidScreen(name='screen_android'))
 sm.add_widget(PythonScreen(name='pythonscreen'))
 sm.add_widget(FunScreen(name='funscreen'))
+sm.add_widget(AboutScreen(name='aboutscreen'))
 
 class RezApp(MDApp):
     data = {

@@ -1,4 +1,4 @@
-screen_nav = """
+screen_nav = """ 
 ScreenManager:
     MenuScreen:
     WeebScreen:
@@ -7,6 +7,7 @@ ScreenManager:
     AndroidScreen:
     PythonScreen:
     FunScreen:
+    AboutScreen:
 
 <MenuScreen>:##########################################################################################################################
     name : 'menuscreen'
@@ -15,10 +16,31 @@ ScreenManager:
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.set_state("open")
-    BoxLayout:
-        orientation: 'vertical'
-        Widget:
+        on_press : test_nav.set_state("open")  
+    MDCard:
+        orientation: "vertical"
+        padding: "5dp"
+        size_hint: None, None
+        size: "280dp", "500dp"
+        radius: [10]
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDLabel:
+            text: "Howdy,Stranger!"
+            font_style : 'H4'
+            theme_text_color :'Custom'
+            text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDLabel:
+            text: "Howdy,Stranger!"
+            font_style : 'H4'
+            theme_text_color :'Custom'
+            text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
+            pos_hint: {"center_x": .5, "center_y": .9}
+
+
+
+
     MDNavigationDrawer:
         id : test_nav
         ScrollView:
@@ -68,6 +90,12 @@ ScreenManager:
                     IconLeftWidget:
                         icon: "heart"
 
+                OneLineIconListItem:
+                    text: "About-Dexel"
+                    on_press :
+                        root.manager.current = 'aboutscreen'
+                    IconLeftWidget:
+                        icon: "heart"
     MDFloatingActionButtonSpeedDial:
         data : app.data
         root_button_anim: True
@@ -352,7 +380,12 @@ ScreenManager:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
                         on_active : app.check(*args)
-
+                OneLineIconListItem:
+                    text: "About-Dexel"
+                    on_press :
+                        root.manager.current = 'aboutscreen'
+                    IconLeftWidget:
+                        icon: "information"
 
 <AndroidScreen>:#####################################################################################################################
     name : 'screen_android'
@@ -411,12 +444,12 @@ ScreenManager:
         text: 'ShakeYourPhone'
         icon:'vibrate'
         pos_hint: {'center_x':0.5,'center_y':0.6}
-        on_press : app.vibrate() 
+        on_press : app.vibrate()
 
     MDTextField:
         id : text
         pos_hint: {'center_x':0.5,'center_y':0.8}
-        hint_text: 'Text To Speech'     
+        hint_text: 'Text To Speech'
 
 
 
@@ -425,8 +458,29 @@ ScreenManager:
         pos_hint: {'center_x':0.5,'center_y':0.48}
         on_press:
             app.speak(text.text)
-        
 
 
+<AboutScreen>:
+    name: 'aboutscreen'
 
+    MDScreen:
+
+        MDCard:
+            orientation: "vertical"
+            padding: "8dp"
+            size_hint: None, None
+            size: "400dp", "400dp"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDLabel:
+                text: "Title"
+                theme_text_color: "Secondary"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDSeparator:
+                height: "1dp"
+
+            MDLabel:
+                text: "Body"
 """
