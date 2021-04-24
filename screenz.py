@@ -6,36 +6,16 @@ ScreenManager:
     InfoScreen:
     AndroidScreen:
     PythonScreen:
+    FunScreen:
 
 <MenuScreen>:##########################################################################################################################
     name : 'menuscreen'
     Image :
         source:'res/image_anime.jpg'
-    Video:
-        id : vid_anime_amv
-        source : 'vid/anime_amv.mp4'
-        state : 'play'
-        options : {'eos': 'loop'}
-        allow_stretch : True
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
         on_press : test_nav.set_state("open")
-
-
-    MDIconButton:
-        icon : 'play'
-        pos_hint : {'center_x':.16 , 'center_y': .02}
-        on_press :
-            setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
-            setattr(vid_anime_amv, 'state', 'play')
-    MDIconButton:
-        icon : 'pause'
-        pos_hint : {'center_x':.05 , 'center_y': .02}
-        on_press :
-            setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
-            setattr(vid_anime_amv, 'state', 'stop')
-
     BoxLayout:
         orientation: 'vertical'
         Widget:
@@ -55,8 +35,6 @@ ScreenManager:
                     text: "WeebHub"
                     on_press :
                         root.manager.current = 'weebscreen'
-                        setattr(vid_anime_amv, 'source', 'vid/anime_amv.mp4')
-                        setattr(vid_anime_amv, 'state', 'stop')
                     IconLeftWidget:
                         icon: "heart"
 
@@ -81,6 +59,14 @@ ScreenManager:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
                         on_active : app.check(*args)
+
+
+                OneLineIconListItem:
+                    text: "FunArena"
+                    on_press :
+                        root.manager.current = 'funscreen'
+                    IconLeftWidget:
+                        icon: "heart"
 
     MDFloatingActionButtonSpeedDial:
         data : app.data
@@ -411,4 +397,36 @@ ScreenManager:
     MDIconButton:
         icon :  "arrow-left-thick"
         on_press : root.manager.current = 'infoscreen'
+
+<FunScreen>:
+    name : 'funscreen'
+    MDRectangleFlatIconButton:
+        text :'Check Battery'
+        icon: 'battery'
+        pos_hint: {'center_x':0.5,'center_y':0.7}
+        on_press : app.info_battery()
+
+
+    MDRectangleFlatIconButton:
+        text: 'ShakeYourPhone'
+        icon:'vibrate'
+        pos_hint: {'center_x':0.5,'center_y':0.6}
+        on_press : app.vibrate() 
+
+    MDTextField:
+        id : text
+        pos_hint: {'center_x':0.5,'center_y':0.8}
+        hint_text: 'Text To Speech'     
+
+
+
+    MDIconButton:
+        icon:'menu'
+        pos_hint: {'center_x':0.5,'center_y':0.48}
+        on_press:
+            app.speak(text.text)
+        
+
+
+
 """
