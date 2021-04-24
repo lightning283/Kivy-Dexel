@@ -18,6 +18,7 @@ ScreenManager:
         pos_hint : {'center_x':.05 , 'center_y': .98}
         on_press : test_nav.set_state("open")  
     MDCard:
+        opacity : .7
         orientation: "vertical"
         padding: "5dp"
         size_hint: None, None
@@ -25,12 +26,6 @@ ScreenManager:
         radius: [10]
         pos_hint: {"center_x": .5, "center_y": .5}
 
-        MDLabel:
-            text: "Howdy,Stranger!"
-            font_style : 'H4'
-            theme_text_color :'Custom'
-            text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
-            pos_hint: {"center_x": .5, "center_y": .5}
         MDLabel:
             text: "Howdy,Stranger!"
             font_style : 'H4'
@@ -461,26 +456,5 @@ ScreenManager:
 
 
 <AboutScreen>:
-    name: 'aboutscreen'
 
-    MDScreen:
-
-        MDCard:
-            orientation: "vertical"
-            padding: "8dp"
-            size_hint: None, None
-            size: "400dp", "400dp"
-            pos_hint: {"center_x": .5, "center_y": .5}
-
-            MDLabel:
-                text: "Title"
-                theme_text_color: "Secondary"
-                size_hint_y: None
-                height: self.texture_size[1]
-
-            MDSeparator:
-                height: "1dp"
-
-            MDLabel:
-                text: "Body"
 """
