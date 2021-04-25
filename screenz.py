@@ -80,8 +80,6 @@ ScreenManager:
                         pos_hint : {'center_x' : .1 , 'center_y' : .5}
                         active : True
                         on_active : app.check(*args)
-
-
                 OneLineIconListItem:
                     text: "FunArena"
                     on_press :
@@ -445,8 +443,15 @@ ScreenManager:
 
 
     MDIconButton:
-        icon:'menu'
+        icon:'voice'
         pos_hint: {'center_x':0.5,'center_y':0.48}
         on_press:
             app.speak(text.text)
+
+    MDIconButton:
+        icon: 'menu'
+        on_press:
+            app.nav()
+
+
 """

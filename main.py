@@ -74,5 +74,4 @@ class RezApp(MDApp):
 
     def get_current_brightness(self):
         return brightness.current_level()
-
 RezApp().run()
