@@ -1,22 +1,77 @@
 screen_nav = """
-ScreenManager:
-    MenuScreen:
-    WeebScreen:
-    SocialMediaScreen:
-    InfoScreen:
-    AndroidScreen:
-    PythonScreen:
-    FunScreen:
-    TtsScreen:
+MDNavigationLayout:
+    ScreenManager:
+        id:manager
+        MenuScreen:
+        WeebScreen:
+        SocialMediaScreen:
+        InfoScreen:
+        AndroidScreen:
+        PythonScreen:
+        FunScreen:
+        TtsScreen:
+    MDNavigationDrawer:
+        id : test_nav
+        bg: app.theme_cls.bg_darkest
+        ScrollView:
+            MDList:
+                OneLineIconListItem:
+                    text: "Menu"
+                    on_press :
+                        manager.current = 'menuscreen'
+                    IconLeftWidget:
+                        icon: "menu-open"
 
-<MenuScreen>:##########################################################################################################################
+
+                OneLineIconListItem:
+                    text: "WeebHub"
+                    on_press :
+                        manager.current = 'weebscreen'
+                    IconLeftWidget:
+                        icon: "heart"
+
+
+                OneLineIconListItem:
+                    text: "Information"
+                    on_press :
+                        manager.current = 'infoscreen'
+                    IconLeftWidget:
+                        icon: "information"
+
+
+                OneLineIconListItem:
+                    text: "Credits"
+                    on_press :
+                        manager.current = 'socials'
+                    IconLeftWidget:
+                        icon: "human-greeting"
+                OneLineIconListItem:
+                    text : 'Light/Dark-mode'
+                    MDSwitch:
+                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
+                        active : True
+                        on_active : app.check(*args)
+                OneLineIconListItem:
+                    text: "FunArena"
+                    on_press :
+                        manager.current = 'funscreen'
+                    IconLeftWidget:
+                        icon: "cards-playing-outline"
+                OneLineIconListItem:        
+                    text: "Text-To-Speech"
+                    on_press :
+                        manager.current = 'ttsscreen'
+                    IconLeftWidget:
+                        icon: "speaker"
+
+<MenuScreen>:
     name : 'menuscreen'
     Image :
         source:'res/image_anime.jpg'
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.set_state("open")
+        on_press:app.root.ids.test_nav.set_state("open")
     MDScreen:
         MDCard:
             orientation: "vertical"
@@ -39,69 +94,13 @@ ScreenManager:
                 text: ''
             MDRectangleFlatButton:
                 text : 'Fun-Options'
-                on_press: root.manager.current = 'funscreen'
-    MDNavigationDrawer:
-        id : test_nav
-        bg: app.theme_cls.bg_darkest
-        ScrollView:
-            MDList:
-                OneLineIconListItem:
-                    text: "Menu"
-                    on_press :
-                        root.manager.current = 'menuscreen'
-                    IconLeftWidget:
-                        icon: "menu-open"
-
-
-                OneLineIconListItem:
-                    text: "WeebHub"
-                    on_press :
-                        root.manager.current = 'weebscreen'
-                    IconLeftWidget:
-                        icon: "heart"
-
-
-                OneLineIconListItem:
-                    text: "Information"
-                    on_press :
-                        root.manager.current = 'infoscreen'
-                    IconLeftWidget:
-                        icon: "information"
-
-
-                OneLineIconListItem:
-                    text: "Credits"
-                    on_press :
-                        root.manager.current = 'socials'
-                    IconLeftWidget:
-                        icon: "human-greeting"
-                OneLineIconListItem:
-                    text : 'Light/Dark-mode'
-                    MDSwitch:
-                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
-                        active : True
-                        on_active : app.check(*args)
-                OneLineIconListItem:
-                    text: "FunArena"
-                    on_press :
-                        root.manager.current = 'funscreen'
-                    IconLeftWidget:
-                        icon: "cards-playing-outline"
-                OneLineIconListItem:        
-                    text: "Text-To-Speech"
-                    on_press :
-                        root.manager.current = 'ttsscreen'
-                    IconLeftWidget:
-                        icon: "speaker"
-
-
-                        
+                on_press: root.manager.current = 'funscreen'                            
     MDFloatingActionButtonSpeedDial:
         data : app.data
         root_button_anim: True
 
 
-<WeebScreen>:##########################################################################################################################
+<WeebScreen>:
     name: "weebscreen"
     Image :
         source : "res/image_anime_2.jpg"
@@ -196,53 +195,8 @@ ScreenManager:
 
     MDIconButton:
         icon :  "arrow-left-thick"
-        on_press : test_nav.set_state("open")
-
-    BoxLayout:
-        orientation: 'vertical'
-        Widget:
-    MDNavigationDrawer:
-        id : test_nav
-        ScrollView:
-            MDList:
-                OneLineIconListItem:
-                    text: "Menu"
-                    on_press :
-                        root.manager.current = 'menuscreen'
-                    IconLeftWidget:
-                        icon: "menu-open"
-
-
-                OneLineIconListItem:
-                    text: "WeebHub"
-                    on_press :
-                        root.manager.current = 'weebscreen'
-                    IconLeftWidget:
-                        icon: "heart"
-
-
-                OneLineIconListItem:
-                    text: "Information"
-                    on_press :
-                        root.manager.current = 'infoscreen'
-                    IconLeftWidget:
-                        icon: "information"
-
-
-                OneLineIconListItem:
-                    text: "Credits"
-                    on_press :
-                        root.manager.current = 'socials'
-                    IconLeftWidget:
-                        icon: "human-greeting"
-                OneLineIconListItem:
-                    text : 'Light/Dark-mode'
-                    MDSwitch:
-                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
-                        active : True
-                        on_active : app.check(*args)
-
-<SocialMediaScreen>:##########################################################################################################################
+        on_press:app.root.ids.test_nav.set_state("open")
+<SocialMediaScreen>:
     name : "socials"
     Image :
         source:'res/image_social.jpg'
@@ -270,60 +224,15 @@ ScreenManager:
 
     MDIconButton:
         icon :  "arrow-left-thick"
-        on_press : test_nav.set_state("open")
-
-    BoxLayout:
-        orientation: 'vertical'
-        Widget:
-    MDNavigationDrawer:
-        id : test_nav
-        ScrollView:
-            MDList:
-                OneLineIconListItem:
-                    text: "Menu"
-                    on_press :
-                        root.manager.current = 'menuscreen'
-                    IconLeftWidget:
-                        icon: "menu-open"
-
-
-                OneLineIconListItem:
-                    text: "WeebHub"
-                    on_press :
-                        root.manager.current = 'weebscreen'
-                    IconLeftWidget:
-                        icon: "heart"
-
-
-                OneLineIconListItem:
-                    text: "Information"
-                    on_press :
-                        root.manager.current = 'infoscreen'
-                    IconLeftWidget:
-                        icon: "information"
-
-
-                OneLineIconListItem:
-                    text: "Credits"
-                    on_press :
-                        root.manager.current = 'socials'
-                    IconLeftWidget:
-                        icon: "human-greeting"
-                OneLineIconListItem:
-                    text : 'Light/Dark-mode'
-                    MDSwitch:
-                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
-                        active : True
-                        on_active : app.check(*args)
-
-<InfoScreen>:######################################################################################################################
+        on_press:app.root.ids.test_nav.set_state("open")
+<InfoScreen>:
     name : 'infoscreen'
     Image:
         source : 'res/image_warrior.jpg'
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.set_state("open")
+        on_press:app.root.ids.test_nav.set_state("open")
     MDRectangleFlatIconButton:
         text : 'About Android'
         icon : 'android'
@@ -338,56 +247,7 @@ ScreenManager:
         pos_hint : {'center_x': .5 , 'center_y': .4}
         on_press : root.manager.current = 'pythonscreen'
 
-
-
-    MDNavigationDrawer:
-        id : test_nav
-        ScrollView:
-            MDList:
-                OneLineIconListItem:
-                    text: "Menu"
-                    on_press :
-                        root.manager.current = 'menuscreen'
-                    IconLeftWidget:
-                        icon: "menu-open"
-
-
-                OneLineIconListItem:
-                    text: "WeebHub"
-                    on_press :
-                        root.manager.current = 'weebscreen'
-                    IconLeftWidget:
-                        icon: "heart"
-
-
-                OneLineIconListItem:
-                    text: "Information"
-                    on_press :
-                        root.manager.current = 'infoscreen'
-                    IconLeftWidget:
-                        icon: "information"
-
-
-                OneLineIconListItem:
-                    text: "Credits"
-                    on_press :
-                        root.manager.current = 'socials'
-                    IconLeftWidget:
-                        icon: "human-greeting"
-                OneLineIconListItem:
-                    text : 'Light/Dark-mode'
-                    MDSwitch:
-                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
-                        active : True
-                        on_active : app.check(*args)
-                OneLineIconListItem:
-                    text: "About-Dexel"
-                    on_press :
-                        root.manager.current = 'aboutscreen'
-                    IconLeftWidget:
-                        icon: "information"
-
-<AndroidScreen>:#####################################################################################################################
+<AndroidScreen>:
     name : 'screen_android'
     Image :
         source:'res/image_android.jpg'
@@ -447,7 +307,7 @@ ScreenManager:
         on_press : app.vibrate()
     MDIconButton:
         icon: 'menu'
-        on_press:
+        on_press:app.root.ids.test_nav.set_state("open")
 
 
 <TtsScreen>:
@@ -457,11 +317,10 @@ ScreenManager:
         pos_hint: {'center_x':0.5,'center_y':0.8}
         hint_text: 'Text To Speech'
 
-
     MDRectangleFlatIconButton:
         icon:'speaker'
         text : 'speak'
         pos_hint: {'center_x':0.5,'center_y':0.48}
         on_press:
             app.speak(text.text)
-"""
+    """
