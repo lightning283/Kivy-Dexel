@@ -36,7 +36,7 @@ version = 3.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs,pillow,kivymd
+requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs,pillow,plyer,https://github.com/kivymd/KivyMD/archive/master.zip,pygments,sdl2_ttf==2.0.15
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -49,7 +49,7 @@ requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs
 presplash.filename = %(source.dir)s/res/python.jpg
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/res/icon_1.png
+icon.filename = %(source.dir)s/res/icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -85,7 +85,7 @@ fullscreen = 1
 #android.presplash_color = #FFFFFF
 
 # (list) Permissions
-android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,VIBRATE
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27
