@@ -4,13 +4,11 @@ from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton, MDRectangleFlatButton, MDIconButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.image import Image
-from kivy.uix.videoplayer import VideoPlayer
 from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.list import MDList
-from plyer import battery, vibrator, brightness, tts
+from plyer import battery, vibrator, brightness, tts, flash
 from kivymd.uix.dialog import MDDialog
-from kivy.uix.effectwidget import EffectWidget
 from screenz import screen_nav
 
 
@@ -81,6 +79,11 @@ class RezApp(MDApp):
         dialog = MDDialog(title='Battery Status', text=str(battery.status))
         dialog.open()
 
+    def wait(self):
+        dialog = MDDialog(title='Wait a few seconds', text=(
+            "so that this tts can configure\nfor the first time.\n\nclick to dismiss"))
+        dialog.open()
+
     def vibrate(self):
         vibrator.vibrate()
 
@@ -89,6 +92,12 @@ class RezApp(MDApp):
 
     def get_current_brightness(self):
         return brightness.current_level()
+
+    def turn_on(self):
+        flash.on()
+
+    def turn_off(self):
+        flash.off()
 
 
 RezApp().run()

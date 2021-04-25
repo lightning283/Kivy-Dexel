@@ -310,23 +310,42 @@ MDNavigationLayout:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
 
+    MDRectangleFlatIconButton:
+        icon:'flash'
+        text : 'flash-ON'
+        pos_hint: {'center_x':0.3,'center_y':0.5}
+        on_press:
+            on_release: root.turn_on()
+    MDRectangleFlatIconButton:
+        icon:'flash'
+        text : 'flash-OFF'
+        pos_hint: {'center_x':0.7,'center_y':0.5}
+        on_press:
+            on_release: root.turn_off()  
+
 
 <TtsScreen>:
     name : 'ttsscreen'
     Image:
         source :'res/image_ai.jpg'
     MDTextField:
-        id : text
+        id: saywhat_text
         pos_hint: {'center_x':0.5,'center_y':0.8}
         hint_text: 'Text To Speech'
+        size_hint_x : None
+        icon_right : 'speaker'
+        width: 250
 
     MDRectangleFlatIconButton:
         icon:'speaker'
         text : 'speak'
-        pos_hint: {'center_x':0.5,'center_y':0.48}
+        pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press:
+            app.wait()
             app.speak(text.text)
+
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
+  
     """
