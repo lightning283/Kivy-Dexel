@@ -7,6 +7,7 @@ ScreenManager:
     AndroidScreen:
     PythonScreen:
     FunScreen:
+    TtsScreen:
 
 <MenuScreen>:##########################################################################################################################
     name : 'menuscreen'
@@ -86,6 +87,15 @@ ScreenManager:
                         root.manager.current = 'funscreen'
                     IconLeftWidget:
                         icon: "cards-playing-outline"
+                OneLineIconListItem:        
+                    text: "Text-To-Speech"
+                    on_press :
+                        root.manager.current = 'ttsscreen'
+                    IconLeftWidget:
+                        icon: "speaker"
+
+
+                        
     MDFloatingActionButtonSpeedDial:
         data : app.data
         root_button_anim: True
@@ -438,7 +448,7 @@ ScreenManager:
     MDIconButton:
         icon: 'menu'
         on_press:
-        
+
 
 <TtsScreen>:
     name : 'ttsscreen'
