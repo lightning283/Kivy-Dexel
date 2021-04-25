@@ -293,13 +293,14 @@ MDNavigationLayout:
 
 <FunScreen>:
     name : 'funscreen'
+    Image:
+        source : 'res/image_fun.jpg'
     MDRectangleFlatIconButton:
         text :'Check Battery'
         icon: 'battery'
         pos_hint: {'center_x':0.5,'center_y':0.7}
         on_press : app.info_battery()
-
-
+        
     MDRectangleFlatIconButton:
         text: 'ShakeYourPhone'
         icon:'vibrate'
