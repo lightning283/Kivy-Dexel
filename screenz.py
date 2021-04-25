@@ -27,7 +27,7 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .5}
 
             MDLabel:
-                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Anime-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status"
+                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Weeb-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status"
                 theme_text_color: "Secondary"
                 size_hint_y: None
                 height: self.texture_size[1]
@@ -85,7 +85,7 @@ ScreenManager:
                     on_press :
                         root.manager.current = 'funscreen'
                     IconLeftWidget:
-                        icon: "heart"
+                        icon: "cards-playing-outline"
     MDFloatingActionButtonSpeedDial:
         data : app.data
         root_button_anim: True
@@ -435,23 +435,23 @@ ScreenManager:
         icon:'vibrate'
         pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press : app.vibrate()
+    MDIconButton:
+        icon: 'menu'
+        on_press:
+        
 
+<TtsScreen>:
+    name : 'ttsscreen'
     MDTextField:
         id : text
         pos_hint: {'center_x':0.5,'center_y':0.8}
         hint_text: 'Text To Speech'
 
 
-    MDIconButton:
-        icon:'voice'
+    MDRectangleFlatIconButton:
+        icon:'speaker'
+        text : 'speak'
         pos_hint: {'center_x':0.5,'center_y':0.48}
         on_press:
             app.speak(text.text)
-
-    MDIconButton:
-        icon: 'menu'
-        on_press:
-            app.nav()
-
-
 """
