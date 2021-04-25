@@ -109,7 +109,7 @@ MDNavigationLayout:
             MDRectangleFlatIconButton:
                 icon : 'arrow-right'
                 text : 'Swipe-->>'
-                font_style : 'H4'
+                font_style : 'Body1'
                 pos_hint: {"center_x": .5, "center_y": .97}
             MDCard:
                 orientation: "vertical"
@@ -313,6 +313,8 @@ MDNavigationLayout:
 
 <TtsScreen>:
     name : 'ttsscreen'
+    Image:
+        source :'res/image_ai.jpg'
     MDTextField:
         id : text
         pos_hint: {'center_x':0.5,'center_y':0.8}
@@ -324,4 +326,7 @@ MDNavigationLayout:
         pos_hint: {'center_x':0.5,'center_y':0.48}
         on_press:
             app.speak(text.text)
+    MDIconButton:
+        icon: 'menu'
+        on_press:app.root.ids.test_nav.set_state("open")
     """
