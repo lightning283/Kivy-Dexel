@@ -1,4 +1,4 @@
-screen_nav = """ 
+screen_nav = """
 ScreenManager:
     MenuScreen:
     WeebScreen:
@@ -7,7 +7,6 @@ ScreenManager:
     AndroidScreen:
     PythonScreen:
     FunScreen:
-    AboutScreen:
 
 <MenuScreen>:##########################################################################################################################
     name : 'menuscreen'
@@ -16,28 +15,33 @@ ScreenManager:
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
-        on_press : test_nav.set_state("open")  
-    MDCard:
-        opacity : .7
-        orientation: "vertical"
-        padding: "5dp"
-        size_hint: None, None
-        size: "280dp", "500dp"
-        radius: [10]
-        pos_hint: {"center_x": .5, "center_y": .5}
+        on_press : test_nav.set_state("open")
+    MDScreen:
+        MDCard:
+            orientation: "vertical"
+            opacity: .7
+            padding: "1dp"
+            size_hint: None, None
+            radius: [12]
+            size: "280dp", "480dp"
+            pos_hint: {"center_x": .5, "center_y": .5}
 
-        MDLabel:
-            text: "Howdy,Stranger!"
-            font_style : 'H4'
-            theme_text_color :'Custom'
-            text_color : ( 43/255.0, 196/255.0, 53/255.0,1)
-            pos_hint: {"center_x": .5, "center_y": .9}
+            MDLabel:
+                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Anime-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status"
+                theme_text_color: "Secondary"
+                size_hint_y: None
+                height: self.texture_size[1]
 
-
-
-
+            MDSeparator:
+                height: "5dp"
+            MDLabel:
+                text: ''
+            MDRectangleFlatButton:
+                text : 'Fun-Options'
+                on_press: root.manager.current = 'funscreen'
     MDNavigationDrawer:
         id : test_nav
+        bg: app.theme_cls.bg_darkest
         ScrollView:
             MDList:
                 OneLineIconListItem:
@@ -82,13 +86,6 @@ ScreenManager:
                     text: "FunArena"
                     on_press :
                         root.manager.current = 'funscreen'
-                    IconLeftWidget:
-                        icon: "heart"
-
-                OneLineIconListItem:
-                    text: "About-Dexel"
-                    on_press :
-                        root.manager.current = 'aboutscreen'
                     IconLeftWidget:
                         icon: "heart"
     MDFloatingActionButtonSpeedDial:
@@ -455,6 +452,92 @@ ScreenManager:
             app.speak(text.text)
 
 
-<AboutScreen>:
+    MDScreen:
+        MDCard:
+            orientation: "vertical"
+            opacity: .7
+            padding: "1dp"
+            size_hint: None, None
+            radius: [12]
+            size: "280dp", "480dp"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDLabel:
+                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Anime-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status"
+                theme_text_color: "Secondary"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDSeparator:
+                height: "5dp"
+            MDLabel:
+                text: ''
+            MDRectangleFlatButton:
+                text : 'Fun-Options'
+                on_press: root.manager.current = 'funscreen'
+    MDNavigationDrawer:
+        id : test_nav
+        bg: app.theme_cls.bg_darkest
+        ScrollView:
+            MDList:
+                OneLineIconListItem:
+                    text: "Menu"
+                    on_press :
+                        root.manager.current = 'menuscreen'
+                    IconLeftWidget:
+                        icon: "menu-open"
+
+
+                OneLineIconListItem:
+                    text: "WeebHub"
+                    on_press :
+                        root.manager.current = 'weebscreen'
+                    IconLeftWidget:
+                        icon: "heart"
+
+
+                OneLineIconListItem:
+                    text: "Information"
+                    on_press :
+                        root.manager.current = 'infoscreen'
+                    IconLeftWidget:
+                        icon: "information"
+
+
+                OneLineIconListItem:
+                    text: "Credits"
+                    on_press :
+                        root.manager.current = 'socials'
+                    IconLeftWidget:
+                        icon: "human-greeting"
+                OneLineIconListItem:
+                    text : 'Light/Dark-mode'
+                    MDSwitch:
+                        pos_hint : {'center_x' : .1 , 'center_y' : .5}
+                        active : True
+                        on_active : app.check(*args)
+
+
+                OneLineIconListItem:
+                    text: "FunArena"
+                    on_press :
+                        root.manager.current = 'funscreen'
+                    IconLeftWidget:
+                        icon: "heart"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 """

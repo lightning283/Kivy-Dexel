@@ -32,8 +32,6 @@ class PythonScreen(Screen):
 
 class FunScreen(Screen):
 	pass
-class AboutScreen(Screen):
-    pass
 
 
 sm = ScreenManager()
@@ -44,7 +42,6 @@ sm.add_widget(InfoScreen(name='infoscreen'))
 sm.add_widget(AndroidScreen(name='screen_android'))
 sm.add_widget(PythonScreen(name='pythonscreen'))
 sm.add_widget(FunScreen(name='funscreen'))
-sm.add_widget(AboutScreen(name='aboutscreen'))
 
 class RezApp(MDApp):
     data = {
