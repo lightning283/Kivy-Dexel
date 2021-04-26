@@ -10,11 +10,14 @@ from kivymd.uix.list import MDList
 from plyer import battery, vibrator, brightness, tts, flash
 from kivymd.uix.dialog import MDDialog
 from kivy.utils import platform
-from android.permissions import request_permissions, Permission
-request_permissions([Permission.READ_EXTERNAL_STORAGE,
-                     Permission.WRITE_EXTERNAL_STORAGE,
-                     Permission.CAMERA])
 from screenz import screen_nav
+
+
+if platform == 'android':
+    from android.permissions import request_permissions, Permission
+    request_permissions([Permission.READ_EXTERNAL_STORAGE,
+                        Permission.WRITE_EXTERNAL_STORAGE,
+                        Permission.CAMERA])
 
 
 class MenuScreen(Screen):
@@ -49,6 +52,10 @@ class TtsScreen(Screen):
     pass
 
 
+class AppScreen(Screen):
+    pass
+
+
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name="menuscreen"))
 sm.add_widget(WeebScreen(name="weebscreen"))
@@ -58,6 +65,7 @@ sm.add_widget(AndroidScreen(name='screen_android'))
 sm.add_widget(PythonScreen(name='pythonscreen'))
 sm.add_widget(FunScreen(name='funscreen'))
 sm.add_widget(TtsScreen(name='ttsscreen'))
+sm.add_widget(AppScreen(name='appscreen'))
 
 
 class RezApp(MDApp):
@@ -103,6 +111,11 @@ class RezApp(MDApp):
 
     def turn_off(self):
         flash.off()
+
+    def playstore(self):
+        from kvdroid import launch_app
+        launch_app(com.android.vending,
+                   com.google.android.finsky.activities.MainActivity)
 
 
 RezApp().run()

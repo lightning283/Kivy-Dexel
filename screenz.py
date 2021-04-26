@@ -10,6 +10,7 @@ MDNavigationLayout:
         PythonScreen:
         FunScreen:
         TtsScreen:
+        AppScreen:
     MDNavigationDrawer:
         id : test_nav
         bg: app.theme_cls.bg_darkest
@@ -63,6 +64,12 @@ MDNavigationLayout:
                         manager.current = 'ttsscreen'
                     IconLeftWidget:
                         icon: "speaker"
+                OneLineIconListItem:        
+                    text: "App-Launch"
+                    on_press :
+                        manager.current = 'appscreen'
+                    IconLeftWidget:
+                        icon: "apps"
 
 <MenuScreen>:
     name : 'menuscreen'
@@ -347,5 +354,10 @@ MDNavigationLayout:
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
-  
+
+<AppScreen>:
+    name : 'appscreen'
+    MDIconButton:
+        icon: 'sony-playstation'
+        on_press: app.playstore()
     """
