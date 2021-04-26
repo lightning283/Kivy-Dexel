@@ -341,7 +341,7 @@ MDNavigationLayout:
         text : 'Android-Easteregg'
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press:
-            app.androideasteregg()
+            app.androidegg()
 
 <TtsScreen>:
     name : 'ttsscreen'

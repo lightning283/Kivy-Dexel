@@ -119,10 +119,10 @@ class RezApp(MDApp):
     def youtube(self):
         from kvdroid import launch_app
         launch_app('com.google.android.youtube', 'com.google.android.youtube.HomeActivity')
-    def facebook():
+    def facebook(self):
         from kvdroid import launch_app
         launch_app('com.facebook.katana', 'com.facebook.katana.LoginActivity')
-    def androideasteregg():
+    def androidegg(self):
         from kvdroid import launch_app
         launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
         
