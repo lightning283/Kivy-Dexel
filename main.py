@@ -86,6 +86,11 @@ class RezApp(MDApp):
     def speak(self, text_to_read):
         tts.speak(text_to_read)
 
+    def kvtts(self, text_to_read):
+        from kvdroid import speech
+        speech(text_to_read, "en")
+
+
     def check(self, checkbox, value):
         if value:
             self.theme_cls.theme_style = "Dark"

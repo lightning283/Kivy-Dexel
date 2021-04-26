@@ -23,7 +23,6 @@ MDNavigationLayout:
                     IconLeftWidget:
                         icon: "menu-open"
 
-
                 OneLineIconListItem:
                     text: "WeebHub"
                     on_press :
@@ -117,6 +116,12 @@ MDNavigationLayout:
     name: "weebscreen"
     Image :
         source : "res/image_anime_2.jpg"
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     Carousel:
         MDFloatLayout:
             MDRectangleFlatIconButton:
@@ -213,6 +218,12 @@ MDNavigationLayout:
     name : "socials"
     Image :
         source:'res/image_social.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDLabel:
         text:"Follow My Scoials ;)"
         theme_text_color :'Custom'
@@ -242,6 +253,12 @@ MDNavigationLayout:
     name : 'infoscreen'
     Image:
         source : 'res/image_warrior.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
@@ -264,6 +281,12 @@ MDNavigationLayout:
     name : 'screen_android'
     Image :
         source:'res/image_android.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDLabel:
         text:"What Is Android?"
         multiline : True
@@ -287,6 +310,12 @@ MDNavigationLayout:
     name: 'pythonscreen'
     Image :
         source:'res/image_python.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDLabel :
         text : 'What is Python?'
         font_style : "H4"
@@ -308,6 +337,12 @@ MDNavigationLayout:
     name : 'funscreen'
     Image:
         source : 'res/image_fun.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDRectangleFlatIconButton:
         text :'Check Battery'
         icon: 'battery'
@@ -347,6 +382,12 @@ MDNavigationLayout:
     name : 'ttsscreen'
     Image:
         source :'res/image_ai.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDTextField:
         id: text
         pos_hint: {'center_x':0.5,'center_y':0.8}
@@ -397,4 +438,4 @@ MDNavigationLayout:
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
-    """
+"""
