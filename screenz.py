@@ -403,7 +403,13 @@ MDNavigationLayout:
         on_press:
             app.wait()
             app.speak(text.text)
-
+    MDRectangleFlatIconButton:
+        icon:'speaker'
+        text : 'speak-V2'
+        pos_hint: {'center_x':0.5,'center_y':0.5}
+        on_press:
+            app.wait()
+            app.kvtts(text.text)
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
