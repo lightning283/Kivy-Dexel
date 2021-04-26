@@ -353,7 +353,7 @@ MDNavigationLayout:
         hint_text: 'Text To Speech'
         size_hint_x : None
         icon_right : 'speaker'
-        width: 300
+        width: 400
 
     MDRectangleFlatIconButton:
         icon:'speaker'
