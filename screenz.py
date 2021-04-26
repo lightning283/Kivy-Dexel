@@ -96,7 +96,7 @@ MDNavigationLayout:
             pos_hint: {"center_x": .5, "center_y": .5}
 
             MDLabel:
-                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Weeb-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status"
+                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Weeb-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status\\n-AppLaunches including android  EasterEgg.\\n-Flash-ON/OFF"
                 theme_text_color: "Secondary"
                 size_hint_y: None
                 height: self.texture_size[1]
