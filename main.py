@@ -97,7 +97,6 @@ class RezApp(MDApp):
         from kvdroid import speech
         speech("hehe hello human bodies how are you i hope you are doing well, well im build with python how may i serve you", "en")
 
-
     def check(self, checkbox, value):
         if value:
             self.theme_cls.theme_style = "Dark"
@@ -139,4 +138,8 @@ class RezApp(MDApp):
         original = r'res/test.jpg'
         target = r'/sdcard/test.jpg'
         shutil.copyfile(original, target)
+    def instagram(self):
+        from kvdroid import launch_app
+        launch_app('com.instagram.android', 'com.instagram.android.MainTabActivity')
+
 RezApp().run()

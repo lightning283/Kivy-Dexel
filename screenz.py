@@ -447,6 +447,13 @@ MDNavigationLayout:
         text : 'Launch-FaceBook'
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press: app.facebook()
+
+    MDRectangleFlatIconButton:
+        icon: 'instagram'
+        text : 'Launch-Instagram'
+        pos_hint: {'center_x':0.5,'center_y':0.3}
+        on_press: app.instagram()
+
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
