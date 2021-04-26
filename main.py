@@ -56,6 +56,8 @@ class TtsScreen(Screen):
 class AppScreen(Screen):
     pass
 
+class WallScreen(Screen):
+    pass
 
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name="menuscreen"))
@@ -67,6 +69,7 @@ sm.add_widget(PythonScreen(name='pythonscreen'))
 sm.add_widget(FunScreen(name='funscreen'))
 sm.add_widget(TtsScreen(name='ttsscreen'))
 sm.add_widget(AppScreen(name='appscreen'))
+sm.add_widget(WallScreen(name='wallscreen'))
 
 
 class RezApp(MDApp):
@@ -132,5 +135,7 @@ if platform == 'android':
     def androidegg(self):
         from kvdroid import launch_app
         launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
-        
+    def walls(self):
+        from kvdroid import set_wallpaper
+        set_wallpaper("res/anime_itachi.jpg")   
 RezApp().run()

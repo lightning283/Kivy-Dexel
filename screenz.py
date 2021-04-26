@@ -11,6 +11,7 @@ MDNavigationLayout:
         FunScreen:
         TtsScreen:
         AppScreen:
+        WallScreen:
     MDNavigationDrawer:
         id : test_nav
         bg: app.theme_cls.bg_darkest
@@ -69,7 +70,12 @@ MDNavigationLayout:
                         manager.current = 'appscreen'
                     IconLeftWidget:
                         icon: "apps"
-
+                OneLineIconListItem:        
+                    text: "Wallpapers"
+                    on_press :
+                        manager.current = 'wallscreen'
+                    IconLeftWidget:
+                        icon: "image-size-select-actual"
 <MenuScreen>:
     name : 'menuscreen'
     Image:
@@ -441,6 +447,26 @@ MDNavigationLayout:
         text : 'Launch-FaceBook'
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press: app.facebook()
+    MDIconButton:
+        icon: 'menu'
+        on_press:app.root.ids.test_nav.set_state("open")
+
+
+<WallScreen>:
+    name: 'wallscreen'
+    Image:
+        source : 'res/anime_itachi.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    MDRectangleFlatIconButton:
+        icon : 'image-size-select-actual'
+        text  :'Set Wallpaper'
+        pos_hint: {'center_x':0.5,'center_y':0.5}
+        on_press : app.walls()
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")
