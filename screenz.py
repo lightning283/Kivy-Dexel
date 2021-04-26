@@ -394,7 +394,7 @@ MDNavigationLayout:
         hint_text: 'Text To Speech'
         size_hint_x : None
         icon_right : 'speaker'
-        width: 400
+        width: 500
 
     MDRectangleFlatIconButton:
         icon:'speaker'
