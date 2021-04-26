@@ -12,16 +12,14 @@ from kivymd.uix.dialog import MDDialog
 from kivy.utils import platform
 from screenz import screen_nav
 
-
 if platform == 'android':
     from android.permissions import request_permissions, Permission
     request_permissions([Permission.READ_EXTERNAL_STORAGE,
                         Permission.WRITE_EXTERNAL_STORAGE,
                         Permission.CAMERA])
-
 if platform == 'android':
-    from kvdroid import nav_color
-    navbar_color("#2a87fe")
+    from kvdroid import toast
+    toast("App Is Loading This May Take Some Time...")
 
 class MenuScreen(Screen):
     pass
@@ -117,10 +115,15 @@ class RezApp(MDApp):
 
     def whatsapp(self):
         from kvdroid import launch_app
-        launch_app('com.whatsapp', 'com.whatsapp.instrumentation.ui,InstrumentationAuthActivity')
+        launch_app('com.whatsapp', 'com.whatsapp.HomeActivity')
     def youtube(self):
         from kvdroid import launch_app
         launch_app('com.google.android.youtube', 'com.google.android.youtube.HomeActivity')
-
-
+    def facebook():
+        from kvdroid import launch_app
+        launch_app('com.facebook.katana', 'com.facebook.katana.LoginActivity')
+    def androideasteregg():
+        from kvdroid import launch_app
+        launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
+        
 RezApp().run()
