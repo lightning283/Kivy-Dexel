@@ -19,6 +19,9 @@ if platform == 'android':
                         Permission.WRITE_EXTERNAL_STORAGE,
                         Permission.CAMERA])
 
+if platform == 'android':
+    from kvdroid import nav_color
+    navbar_color("#2a87fe")
 
 class MenuScreen(Screen):
     pass
@@ -112,10 +115,12 @@ class RezApp(MDApp):
     def turn_off(self):
         flash.off()
 
-    def playstore(self):
+    def whatsapp(self):
         from kvdroid import launch_app
-        launch_app(com.android.vending,
-                   com.google.android.finsky.activities.MainActivity)
+        launch_app('com.whatsapp', 'com.whatsapp.instrumentation.ui,InstrumentationAuthActivity')
+    def youtube(self):
+        from kvdroid import launch_app
+        launch_app('com.google.android.youtube', 'com.google.android.youtube.HomeActivity')
 
 
 RezApp().run()

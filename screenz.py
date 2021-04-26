@@ -359,5 +359,13 @@ MDNavigationLayout:
     name : 'appscreen'
     MDIconButton:
         icon: 'sony-playstation'
-        on_press: app.playstore()
+        pos_hint: {'center_x':0.5,'center_y':0.5}
+        on_press: app.whatsapp()
+
+    MDIconButton:
+        icon: 'youtube'
+        pos_hint: {'center_x':0.5,'center_y':0.6}
+        on_press: app.youtube()
+
+
     """
