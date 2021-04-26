@@ -315,13 +315,13 @@ MDNavigationLayout:
         text : 'flash-ON'
         pos_hint: {'center_x':0.3,'center_y':0.5}
         on_press:
-            on_release: root.turn_on()
+            app.turn_on()
     MDRectangleFlatIconButton:
         icon:'flash'
         text : 'flash-OFF'
         pos_hint: {'center_x':0.7,'center_y':0.5}
         on_press:
-            on_release: root.turn_off()  
+            app.turn_off()  
 
 
 <TtsScreen>:
@@ -329,12 +329,12 @@ MDNavigationLayout:
     Image:
         source :'res/image_ai.jpg'
     MDTextField:
-        id: saywhat_text
+        id: text
         pos_hint: {'center_x':0.5,'center_y':0.8}
         hint_text: 'Text To Speech'
         size_hint_x : None
         icon_right : 'speaker'
-        width: 250
+        width: 300
 
     MDRectangleFlatIconButton:
         icon:'speaker'

@@ -9,7 +9,14 @@ from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.list import MDList
 from plyer import battery, vibrator, brightness, tts, flash
 from kivymd.uix.dialog import MDDialog
+from kivy.utils import platform
 from screenz import screen_nav
+
+
+if platform == "android":
+    from android.permissions import request_permissions, Permission
+    request_permissions([Permission.READ_EXTERNAL_STORAGE,
+                        Permission.WRITE_EXTERNAL_STORAGE])
 
 
 class MenuScreen(Screen):
