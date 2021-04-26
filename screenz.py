@@ -73,8 +73,14 @@ MDNavigationLayout:
 
 <MenuScreen>:
     name : 'menuscreen'
-    Image :
-        source:'res/image_anime.jpg'
+    Image:
+        source : 'res/image_new_screen.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDIconButton:
         icon : 'menu'
         pos_hint : {'center_x':.05 , 'center_y': .98}
