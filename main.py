@@ -67,9 +67,6 @@ sm.add_widget(PythonScreen(name='pythonscreen'))
 sm.add_widget(FunScreen(name='funscreen'))
 sm.add_widget(TtsScreen(name='ttsscreen'))
 sm.add_widget(AppScreen(name='appscreen'))
-if platform == 'android':
-    from kvdroid import toast
-    toast("App Is Loading This May Take Some Time...")
 
 
 class RezApp(MDApp):
@@ -82,7 +79,9 @@ class RezApp(MDApp):
         self.theme_cls.theme_style = "Dark"
         screen = Builder.load_string(screen_nav)
         return screen
-
+if platform == 'android':
+    from kvdroid import toast
+    toast("App Is Loading This May Take Some Time...")
     def speak(self, text_to_read):
         tts.speak(text_to_read)
 

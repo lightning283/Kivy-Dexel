@@ -115,7 +115,7 @@ MDNavigationLayout:
 <WeebScreen>:
     name: "weebscreen"
     Image :
-        source : "res/image_anime_2.jpg"
+        source : "res/image_anime.jpg"
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
