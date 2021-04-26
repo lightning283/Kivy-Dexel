@@ -466,7 +466,9 @@ MDNavigationLayout:
         icon : 'image-size-select-actual'
         text  :'Set Wallpaper'
         pos_hint: {'center_x':0.5,'center_y':0.5}
-        on_press : app.walls()
+        on_press :
+            app.move()
+            app.walls()
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")

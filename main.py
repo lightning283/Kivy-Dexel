@@ -16,8 +16,16 @@ if platform == 'android':
     from android.permissions import request_permissions, Permission
     request_permissions([Permission.READ_EXTERNAL_STORAGE,
                         Permission.WRITE_EXTERNAL_STORAGE,
-                        Permission.CAMERA])
+                        Permission.CAMERA,
+                        Permission.SET_WALLPAPER])
 if platform == 'android':
+    from kvdroid import statusbar_color
+    statusbar_color("#d92913","black")
+
+
+if platform == 'android':
+    import time
+    time.sleep(4)
     from kvdroid import toast
     toast("App Is Loading This May Take Some Time...")
 
@@ -87,7 +95,7 @@ class RezApp(MDApp):
 
     def kvtts(self, text_to_read):
         from kvdroid import speech
-        speech(text_to_read, "en")
+        speech("hehe hello human bodies how are you i hope you are doing well, well im build with python how may i serve you", "en")
 
 
     def check(self, checkbox, value):
@@ -107,19 +115,10 @@ class RezApp(MDApp):
 
     def vibrate(self):
         vibrator.vibrate()
-
-    def set_brightness(self, level):
-        brightness.set_level(level)
-
-    def get_current_brightness(self):
-        return brightness.current_level()
-
     def turn_on(self):
         flash.on()
-
     def turn_off(self):
         flash.off()
-
     def whatsapp(self):
         from kvdroid import launch_app
         launch_app('com.whatsapp', 'com.whatsapp.HomeActivity')
@@ -134,5 +133,10 @@ class RezApp(MDApp):
         launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
     def walls(self):
         from kvdroid import set_wallpaper
-        set_wallpaper("res/anime_itachi.jpg")   
+        set_wallpaper("/sdcard/test.jpg")
+    def move(self):
+        import shutil
+        original = r'res/test.jpg'
+        target = r'/sdcard/test.jpg'
+        shutil.copyfile(original, target)
 RezApp().run()
