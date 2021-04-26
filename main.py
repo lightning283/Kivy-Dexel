@@ -92,11 +92,7 @@ class RezApp(MDApp):
         return screen
     def speak(self, text_to_read):
         tts.speak(text_to_read)
-
-    def kvtts(self, text_to_read):
-        from kvdroid import speech
-        speech("hehe hello human bodies how are you i hope you are doing well, well im build with python how may i serve you", "en")
-
+        
     def check(self, checkbox, value):
         if value:
             self.theme_cls.theme_style = "Dark"
