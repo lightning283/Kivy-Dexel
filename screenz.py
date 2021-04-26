@@ -328,8 +328,14 @@ MDNavigationLayout:
         text : 'flash-OFF'
         pos_hint: {'center_x':0.7,'center_y':0.5}
         on_press:
-            app.turn_off()  
+            app.turn_off()
 
+    MDRectangleFlatIconButton:
+        icon:'android'
+        text : 'Android-Easteregg'
+        pos_hint: {'center_x':0.5,'center_y':0.4}
+        on_press:
+            app.androideasteregg()
 
 <TtsScreen>:
     name : 'ttsscreen'
@@ -357,15 +363,24 @@ MDNavigationLayout:
 
 <AppScreen>:
     name : 'appscreen'
-    MDIconButton:
+    MDRectangleFlatIconButton:
         icon: 'sony-playstation'
-        pos_hint: {'center_x':0.5,'center_y':0.5}
+        text : 'Launch-WhatsApp'
+        pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press: app.whatsapp()
 
-    MDIconButton:
+    MDRectangleFlatIconButton:
         icon: 'youtube'
-        pos_hint: {'center_x':0.5,'center_y':0.6}
+        text : 'Launch-YouTube'
+        pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press: app.youtube()
 
-
+    MDRectangleFlatIconButton:
+        icon: 'facebook'
+        text : 'Launch-FaceBook'
+        pos_hint: {'center_x':0.5,'center_y':0.4}
+        on_press: app.facebook()
+    MDIconButton:
+        icon: 'menu'
+        on_press:app.root.ids.test_nav.set_state("open")
     """
