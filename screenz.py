@@ -363,8 +363,16 @@ MDNavigationLayout:
 
 <AppScreen>:
     name : 'appscreen'
+    Image:
+        source : 'res/image_app.jpg'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
     MDRectangleFlatIconButton:
-        icon: 'sony-playstation'
+        icon: 'whatsapp'
         text : 'Launch-WhatsApp'
         pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press: app.whatsapp()
