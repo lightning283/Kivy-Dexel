@@ -82,7 +82,7 @@ MDNavigationLayout:
 <MenuScreen>:
     name : 'menuscreen'
     Image:
-        source : 'res/image_space.jpg'
+        source : 'res/anime_itachi.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -104,13 +104,13 @@ MDNavigationLayout:
             pos_hint: {"center_x": .5, "center_y": .5}
 
             MDLabel:
-                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Weeb-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status\\n-AppLaunches including android  EasterEgg.\\n-Flash-ON/OFF"
+                text: "                  Howdy,Stranger!\\n\\nFeatures this app has:\\n-Text-To-Speech\\n-Weeb-Hub(For Anime Fans)\\n-Info About Android and Python\\n-Vibrativity\\n-Battery-Status\\n-AppLaunches including android  EasterEgg.\\n-Flash-ON/OFF\\nWallpaperPicker\\n"
                 theme_text_color: "Secondary"
                 size_hint_y: None
                 height: self.texture_size[1]
 
             MDSeparator:
-                height: "5dp"
+                height: "2dp"
             MDLabel:
                 text: ''
             MDRectangleFlatButton:
@@ -412,13 +412,6 @@ MDNavigationLayout:
         on_press:
             app.wait()
             app.speak(text.text)
-    MDRectangleFlatIconButton:
-        icon:'speaker'
-        text : 'speak-V2'
-        pos_hint: {'center_x':0.5,'center_y':0.5}
-        on_press:
-            app.wait()
-            app.kvtts(text.text)
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")

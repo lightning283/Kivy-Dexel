@@ -1,6 +1,6 @@
 #!/bin/python
 import shutil
-import pathlib
+import os
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton, MDRectangleFlatButton, MDIconButton
@@ -123,7 +123,7 @@ class RezApp(MDApp):
         launch_app('com.facebook.katana', 'com.facebook.katana.LoginActivity')
     def instagram(self):
         from kvdroid import launch_app
-        launch_app('com.instagram.android', 'com.instagram.android.MainTabActivity')
+        launch_app('com.instagram.android', 'com.instagram.mainactivity.LauncherActivity')
     def androidegg(self):
         from kvdroid import launch_app
         launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
@@ -137,8 +137,8 @@ class RezApp(MDApp):
             set_wallpaper("/sdcard/image_anime.jpg")
     def cpfiles(self):
         if platform == "android":
-            filePath=pathlib.Path("/sdcard/wallpapers/move.done")
-            if filePath.exists():
+            check=os.path.isfile("/sdcard/wallpapers/move.kv")
+            if check == True:
                 print("The files exist..wont do anything.")
             else:
                 original = r'wallpapers'
