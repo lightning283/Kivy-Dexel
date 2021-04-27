@@ -82,7 +82,7 @@ MDNavigationLayout:
 <MenuScreen>:
     name : 'menuscreen'
     Image:
-        source : 'res/image_new_screen.jpg'
+        source : 'res/image_space.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
