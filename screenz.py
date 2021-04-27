@@ -1,7 +1,9 @@
 screen_nav = """
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 MDNavigationLayout:
     ScreenManager:
         id:manager
+        transition: FadeTransition()
         MenuScreen:
         WeebScreen:
         SocialMediaScreen:
@@ -79,7 +81,7 @@ MDNavigationLayout:
 <MenuScreen>:
     name : 'menuscreen'
     Image:
-        source : 'res/image_new_screen.jpg'
+        source : '/sdcard/res/image_new_screen.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -121,7 +123,7 @@ MDNavigationLayout:
 <WeebScreen>:
     name: "weebscreen"
     Image :
-        source : "res/image_anime.jpg"
+        source : "/sdcard/res/image_anime.jpg"
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -223,7 +225,7 @@ MDNavigationLayout:
 <SocialMediaScreen>:
     name : "socials"
     Image :
-        source:'res/image_social.jpg'
+        source:'/sdcard/res/image_social.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -258,7 +260,7 @@ MDNavigationLayout:
 <InfoScreen>:
     name : 'infoscreen'
     Image:
-        source : 'res/image_warrior.jpg'
+        source : '/sdcard/res/image_warrior.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -286,7 +288,7 @@ MDNavigationLayout:
 <AndroidScreen>:
     name : 'screen_android'
     Image :
-        source:'res/image_android.jpg'
+        source:'/sdcard/res/image_android.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -315,7 +317,7 @@ MDNavigationLayout:
 <PythonScreen>:
     name: 'pythonscreen'
     Image :
-        source:'res/image_python.jpg'
+        source:'/sdcard/res/image_python.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -342,7 +344,7 @@ MDNavigationLayout:
 <FunScreen>:
     name : 'funscreen'
     Image:
-        source : 'res/image_fun.jpg'
+        source : '/sdcard/res/image_fun.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -387,7 +389,7 @@ MDNavigationLayout:
 <TtsScreen>:
     name : 'ttsscreen'
     Image:
-        source :'res/image_ai.jpg'
+        source :'/sdcard/res/image_ai.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -423,7 +425,7 @@ MDNavigationLayout:
 <AppScreen>:
     name : 'appscreen'
     Image:
-        source : 'res/image_app.jpg'
+        source : '/sdcard/res/image_app.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -455,20 +457,58 @@ MDNavigationLayout:
 <WallScreen>:
     name: 'wallscreen'
     Image:
-        source : 'res/anime_itachi.jpg'
+        source : '/sdcard/res/image_anime.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
         size_hint_x: None
         width: self.parent.width
         height: self.parent.width/self.image_ratio
-    MDRectangleFlatIconButton:
-        icon : 'image-size-select-actual'
-        text  :'Set Wallpaper'
-        pos_hint: {'center_x':0.5,'center_y':0.5}
-        on_press :
-            app.move()
-            app.walls()
+    Carousel:
+        MDFloatLayout:
+            MDRectangleFlatIconButton:
+                icon : 'arrow-right'
+                text : 'Swipe-->>'
+                font_style : 'Body1'
+                pos_hint: {"center_x": .5, "center_y": .97}
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: "280dp", "533dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Image:
+                    source : '/sdcard/res/anime_itachi.jpg'
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint_y: None
+                    size_hint_x: None
+                    width: self.parent.width
+                    height: self.parent.width/self.image_ratio
+                MDRectangleFlatIconButton:
+                    icon : 'image-size-select-actual'
+                    text  :'Set Wallpaper'
+                    pos_hint: {'center_x':0.5,'center_y':0.5}
+                    on_press :
+                        app.walls()
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: "280dp", "533dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Image:
+                    source : '/sdcard/res/image_anime.jpg'
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint_y: None
+                    size_hint_x: None
+                    width: self.parent.width
+                    height: self.parent.width/self.image_ratio
+                MDRectangleFlatIconButton:
+                    icon : 'image-size-select-actual'
+                    text  :'Set Wallpaper'
+                    pos_hint: {'center_x':0.5,'center_y':0.5}
+                    on_press :
+                        app.walls2()
     MDIconButton:
         icon: 'menu'
         on_press:app.root.ids.test_nav.set_state("open")

@@ -1,4 +1,13 @@
 #!/bin/python
+import shutil
+import os.path
+check = os.path.isfile("/sdcard/res/move.done")
+if check == True:
+    pass
+else:
+    original = r'res'
+    target = r'/sdcard/res'
+    shutil.copytree(original, target)
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton, MDRectangleFlatButton, MDIconButton
@@ -7,7 +16,7 @@ from kivy.uix.image import Image
 from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.list import MDList
-from plyer import battery, vibrator, brightness, tts, flash
+from plyer import battery, vibrator, brightness, tts , flash
 from kivymd.uix.dialog import MDDialog
 from kivy.utils import platform
 from screenz import screen_nav
@@ -20,7 +29,7 @@ if platform == 'android':
                         Permission.SET_WALLPAPER])
 if platform == 'android':
     from kvdroid import statusbar_color
-    statusbar_color("#d92913","black")
+    statusbar_color("#1e95ed","black")
 
 
 if platform == 'android':
@@ -93,11 +102,6 @@ class RezApp(MDApp):
     def speak(self, text_to_read):
         tts.speak(text_to_read)
 
-    def kvtts(self, text_to_read):
-        from kvdroid import speech
-        speech("hehe hello human bodies how are you i hope you are doing well, well im build with python how may i serve you", "en")
-
-
     def check(self, checkbox, value):
         if value:
             self.theme_cls.theme_style = "Dark"
@@ -133,10 +137,8 @@ class RezApp(MDApp):
         launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
     def walls(self):
         from kvdroid import set_wallpaper
-        set_wallpaper("/sdcard/test.jpg")
-    def move(self):
-        import shutil
-        original = r'res/test.jpg'
-        target = r'/sdcard/test.jpg'
-        shutil.copyfile(original, target)
+        set_wallpaper("/sdcard/anime_itachi.jpg")
+    def walls2(self):
+        from kvdroid import set_wallpaper
+        set_wallpaper("/sdcard/image_anime.jpg")
 RezApp().run()
