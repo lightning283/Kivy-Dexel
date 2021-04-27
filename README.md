@@ -15,3 +15,9 @@ A Android Apk Written in Python-kivy , Kivymd.
 -  Battery Status
 -  App-Launches for apps like FaceBook,Instagram,Youtube,WhatsApp.
 -  Wallpaper Changer.
+# OpenSource
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/yf6xvsX/807172461879754762.gif" alt="807172461879754762" border="0"></a>
+
+-  feel free to do whatever you want to improve this.
+-  I buit this for learning about python , kivy , kivymd and some android features.
