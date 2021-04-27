@@ -1,13 +1,6 @@
 #!/bin/python
 import shutil
-import os.path
-check = os.path.isfile("/sdcard/res/move.done")
-if check == True:
-    pass
-else:
-    original = r'res'
-    target = r'/sdcard/res'
-    shutil.copytree(original, target)
+import pathlib
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton, MDRectangleFlatButton, MDIconButton
@@ -27,16 +20,17 @@ if platform == 'android':
                         Permission.WRITE_EXTERNAL_STORAGE,
                         Permission.CAMERA,
                         Permission.SET_WALLPAPER])
+
 if platform == 'android':
     from kvdroid import statusbar_color
     statusbar_color("#1e95ed","black")
 
-
 if platform == 'android':
     import time
-    time.sleep(4)
+    time.sleep(6)
     from kvdroid import toast
     toast("App Is Loading This May Take Some Time...")
+
 
 class MenuScreen(Screen):
     pass
@@ -93,7 +87,6 @@ class RezApp(MDApp):
     data = {
         'Built with :': 'language-python'
     }
-
     def build(self):
         self.theme_cls.primary_palette = "Yellow"
         self.theme_cls.theme_style = "Dark"
@@ -101,22 +94,18 @@ class RezApp(MDApp):
         return screen
     def speak(self, text_to_read):
         tts.speak(text_to_read)
-
     def check(self, checkbox, value):
         if value:
             self.theme_cls.theme_style = "Dark"
         else:
             self.theme_cls.theme_style = "Light"
-
     def info_battery(self):
         dialog = MDDialog(title='Battery Status', text=str(battery.status))
         dialog.open()
-
     def wait(self):
         dialog = MDDialog(title='Wait a few seconds', text=(
             "so that this tts can configure\nfor the first time.\n\nclick to dismiss"))
         dialog.open()
-
     def vibrate(self):
         vibrator.vibrate()
     def turn_on(self):
@@ -136,9 +125,21 @@ class RezApp(MDApp):
         from kvdroid import launch_app
         launch_app('com.android.egg', 'com.android.egg.octo.Ocquarium')
     def walls(self):
-        from kvdroid import set_wallpaper
-        set_wallpaper("/sdcard/anime_itachi.jpg")
+        if platform == "android":
+            from kvdroid import set_wallpaper
+            set_wallpaper("/sdcard/anime_itachi.jpg")
     def walls2(self):
-        from kvdroid import set_wallpaper
-        set_wallpaper("/sdcard/image_anime.jpg")
+        if platform == "android":
+            from kvdroid import set_wallpaper
+            set_wallpaper("/sdcard/image_anime.jpg")
+    def cpfiles(self):
+        if platform == "android":
+            filePath=pathlib.Path("/sdcard/wallpapers/move.done")
+            if filePath.exists():
+                print("The files exist..wont do anything.")
+            else:
+                original = r'wallpapers'
+                target = r'/sdcard/wallpapers'
+                shutil.copytree(original, target)
+
 RezApp().run()

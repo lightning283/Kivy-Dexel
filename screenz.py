@@ -75,13 +75,14 @@ MDNavigationLayout:
                 OneLineIconListItem:        
                     text: "Wallpapers"
                     on_press :
+                        app.cpfiles()
                         manager.current = 'wallscreen'
                     IconLeftWidget:
                         icon: "image-size-select-actual"
 <MenuScreen>:
     name : 'menuscreen'
     Image:
-        source : '/sdcard/res/image_new_screen.jpg'
+        source : 'res/image_new_screen.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -123,7 +124,7 @@ MDNavigationLayout:
 <WeebScreen>:
     name: "weebscreen"
     Image :
-        source : "/sdcard/res/image_anime.jpg"
+        source : "res/image_anime.jpg"
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -225,7 +226,7 @@ MDNavigationLayout:
 <SocialMediaScreen>:
     name : "socials"
     Image :
-        source:'/sdcard/res/image_social.jpg'
+        source:'res/image_social.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -260,7 +261,7 @@ MDNavigationLayout:
 <InfoScreen>:
     name : 'infoscreen'
     Image:
-        source : '/sdcard/res/image_warrior.jpg'
+        source : 'res/image_warrior.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -288,7 +289,7 @@ MDNavigationLayout:
 <AndroidScreen>:
     name : 'screen_android'
     Image :
-        source:'/sdcard/res/image_android.jpg'
+        source:'res/image_android.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -317,7 +318,7 @@ MDNavigationLayout:
 <PythonScreen>:
     name: 'pythonscreen'
     Image :
-        source:'/sdcard/res/image_python.jpg'
+        source:'res/image_python.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -344,7 +345,7 @@ MDNavigationLayout:
 <FunScreen>:
     name : 'funscreen'
     Image:
-        source : '/sdcard/res/image_fun.jpg'
+        source : 'res/image_fun.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -389,7 +390,7 @@ MDNavigationLayout:
 <TtsScreen>:
     name : 'ttsscreen'
     Image:
-        source :'/sdcard/res/image_ai.jpg'
+        source :'res/image_ai.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -425,7 +426,7 @@ MDNavigationLayout:
 <AppScreen>:
     name : 'appscreen'
     Image:
-        source : '/sdcard/res/image_app.jpg'
+        source : 'res/image_app.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -457,7 +458,7 @@ MDNavigationLayout:
 <WallScreen>:
     name: 'wallscreen'
     Image:
-        source : '/sdcard/res/image_anime.jpg'
+        source : 'res/image_anime.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
@@ -466,18 +467,13 @@ MDNavigationLayout:
         height: self.parent.width/self.image_ratio
     Carousel:
         MDFloatLayout:
-            MDRectangleFlatIconButton:
-                icon : 'arrow-right'
-                text : 'Swipe-->>'
-                font_style : 'Body1'
-                pos_hint: {"center_x": .5, "center_y": .97}
             MDCard:
                 orientation: "vertical"
                 size_hint: None, None
                 size: "280dp", "533dp"
                 pos_hint: {"center_x": .5, "center_y": .5}
                 Image:
-                    source : '/sdcard/res/anime_itachi.jpg'
+                    source : 'res/anime_itachi.jpg'
                     allow_stretch: True
                     keep_ratio: True
                     size_hint_y: None
@@ -490,13 +486,14 @@ MDNavigationLayout:
                     pos_hint: {'center_x':0.5,'center_y':0.5}
                     on_press :
                         app.walls()
+        MDFloatLayout:
             MDCard:
                 orientation: "vertical"
                 size_hint: None, None
                 size: "280dp", "533dp"
                 pos_hint: {"center_x": .5, "center_y": .5}
                 Image:
-                    source : '/sdcard/res/image_anime.jpg'
+                    source : 'res/image_anime.jpg'
                     allow_stretch: True
                     keep_ratio: True
                     size_hint_y: None
