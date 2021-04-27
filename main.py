@@ -5,7 +5,7 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFloatingActionButton, MDRectangleFlatButton, MDIconButton
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.image import Image , AsyncImage
+from kivy.uix.image import Image
 from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.list import MDList

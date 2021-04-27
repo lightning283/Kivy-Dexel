@@ -81,8 +81,8 @@ MDNavigationLayout:
                         icon: "image-size-select-actual"
 <MenuScreen>:
     name : 'menuscreen'
-    AsyncImage:
-        source : 'https://i.ibb.co/gzNybgm/anime-itachi.jpg'
+    Image:
+        source : 'res/image_new_screen.jpg'
         allow_stretch: True
         keep_ratio: True
         size_hint_y: None
