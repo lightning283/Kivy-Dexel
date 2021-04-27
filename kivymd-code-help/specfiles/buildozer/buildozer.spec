@@ -1,19 +1,19 @@
 [app]
 
 # (str) Title of your application
-title = Dexl
+title = Dexel
 
 # (str) Package name
 package.name = dexel
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = lightz.lightning
 
 # (str) Source code where the main.py live
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,mp4
+source.include_exts = py,png,jpg,kv,atlas,mp4,so
 
 # (list) List of inclusions using pattern matching
 #source.include_patterns = assets/*,images/*.png
@@ -22,7 +22,7 @@ source.include_exts = py,png,jpg,kv,atlas,mp4
 #source.exclude_exts = spec
 
 # (list) List of directory to exclude (let empty to not exclude anything)
-#source.exclude_dirs = tests, bin
+#source.exclude_dirs = tests, bin, venv
 
 # (list) List of exclusions using pattern matching
 #source.exclude_patterns = license,images/*/*.jpg
@@ -36,17 +36,15 @@ version = 3.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs,pillow,plyer,https://github.com/kivymd/KivyMD/archive/master.zip,pygments,sdl2_ttf==2.0.15
+requirements = python3,kivy==2.0.0,ffpyplayer,libshine,libx264,ffpyplayer_codecs,pillow,plyer,https://github.com/kivymd/KivyMD/archive/master.zip,pygments,sdl2_ttf==2.0.15,jnius,kvdroid
+
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
 
-# (list) Garden requirements
-#garden_requirements =
-
 # (str) Presplash of the application
-presplash.filename = %(source.dir)s/res/python.jpg
+presplash.filename = %(source.dir)s/res/presplash.jpg
 
 # (str) Icon of the application
 icon.filename = %(source.dir)s/res/icon.png
@@ -77,15 +75,24 @@ osx.kivy_version = 1.9.1
 # (bool) Indicate if the application should be fullscreen or not
 fullscreen = 1
 
-# (string) Presplash background color (for new android toolchain)
+# (string) Presplash background color (for android toolchain)
 # Supported formats are: #RRGGBB #AARRGGBB or one of the following names:
 # red, blue, green, black, white, gray, cyan, magenta, yellow, lightgray,
 # darkgray, grey, lightgrey, darkgrey, aqua, fuchsia, lime, maroon, navy,
 # olive, purple, silver, teal.
 #android.presplash_color = #FFFFFF
 
+# (string) Presplash animation using Lottie format.
+# see https://lottiefiles.com/ for examples and https://airbnb.design/lottie/
+# for general documentation.
+# Lottie files can be created using various tools, like Adobe After Effect or Synfig.
+#android.presplash_lottie = "path/to/lottie/file.json"
+
 # (list) Permissions
-android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,VIBRATE
+android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,VIBRATE, FLASHLIGHT , SET_WALLPAPER
+
+# (list) features (adds uses-feature -tags to manifest)
+#android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27
@@ -150,13 +157,16 @@ android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORA
 # directory containing the files)
 #android.add_src =
 
-# (list) Android AAR archives to add (currently works only with sdl2_gradle
-# bootstrap)
+# (list) Android AAR archives to add
 #android.add_aars =
 
-# (list) Gradle dependencies to add (currently works only with sdl2_gradle
-# bootstrap)
+# (list) Gradle dependencies to add
 #android.gradle_dependencies =
+
+# (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
+# contains an 'androidx' package, or any package from Kotlin source.
+# android.enable_androidx requires android.api >= 28
+#android.enable_androidx = False
 
 # (list) add java compile options
 # this can for example be necessary when importing certain java libraries using the 'android.gradle_dependencies' option
@@ -173,7 +183,7 @@ android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORA
 # can be necessary to solve conflicts in gradle_dependencies
 # please enclose in double quotes 
 # e.g. android.add_packaging_options = "exclude 'META-INF/common.kotlin_module'", "exclude 'META-INF/*.kotlin_module'"
-#android.add_gradle_repositories =
+#android.add_packaging_options =
 
 # (list) Java classes to add as activities to the manifest.
 #android.add_activities = com.example.ExampleActivity
@@ -213,22 +223,44 @@ android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORA
 #android.uses_library =
 
 # (str) Android logcat filters to use
-android.logcat_filters = *:S python:D
+#android.logcat_filters = *:S python:D
+
+# (bool) Android logcat only display log for activity's pid
+#android.logcat_pid_only = False
+
+# (str) Android additional adb arguments
+#android.adb_args = -H host.docker.internal
 
 # (bool) Copy library instead of making a libpymodules.so
 #android.copy_libs = 1
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 android.arch = armeabi-v7a
+
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
 # android.numeric_version = 1
+
+# (bool) enables Android auto backup feature (Android API >=23)
+android.allow_backup = True
+
+# (str) XML file for custom backup rules (see official auto backup documentation)
+# android.backup_rules =
+
+# (str) If you need to insert variables into your AndroidManifest.xml file,
+# you can do so with the manifestPlaceholders property.
+# This property takes a map of key-value pairs. (via a string)
+# Usage example : android.manifest_placeholders = [myCustomUrl:\"org.kivy.customurl\"]
+# android.manifest_placeholders = [:]
 
 #
 # Python for android (p4a) specific
 #
 
-# (str) python-for-android fork to use, defaults to upstream (kivy)
+# (str) python-for-android URL to use for checkout
+#p4a.url =
+
+# (str) python-for-android fork to use in case if p4a.url is not specified, defaults to upstream (kivy)
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
@@ -249,6 +281,13 @@ android.arch = armeabi-v7a
 # (int) port number to specify an explicit --port= p4a argument (eg for bootstrap flask)
 #p4a.port =
 
+# Control passing the --use-setup-py vs --ignore-setup-py to p4a
+# "in the future" --use-setup-py is going to be the default behaviour in p4a, right now it is not
+# Setting this to false will pass --ignore-setup-py, true will pass --use-setup-py
+# NOTE: this is general setuptools integration, having pyproject.toml is enough, no need to generate
+# setup.py if you're using Poetry, but you need to add "toml" to source.include_exts.
+#p4a.setup_py = false
+
 
 #
 # iOS specific
@@ -265,14 +304,23 @@ ios.kivy_ios_branch = master
 #ios.ios_deploy_dir = ../ios_deploy
 # Or specify URL and branch
 ios.ios_deploy_url = https://github.com/phonegap/ios-deploy
-ios.ios_deploy_branch = 1.7.0
+ios.ios_deploy_branch = 1.10.0
+
+# (bool) Whether or not to sign the code
+ios.codesign.allowed = false
 
 # (str) Name of the certificate to use for signing the debug version
 # Get a list of available identities: buildozer ios list_identities
 #ios.codesign.debug = "iPhone Developer: <lastname> <firstname> (<hexstring>)"
 
+# (str) The development team to use for signing the debug version
+#ios.codesign.development_team.debug = <hexstring>
+
 # (str) Name of the certificate to use for signing the release version
 #ios.codesign.release = %(ios.codesign.debug)s
+
+# (str) The development team to use for signing the release version
+#ios.codesign.development_team.release = <hexstring>
 
 
 [buildozer]
@@ -325,4 +373,4 @@ warn_on_root = 1
 #
 #    Then, invoke the command line with the "demo" profile:
 #
-#buildozer --profile demo android debug
+# #buildozer --profile demo android debug

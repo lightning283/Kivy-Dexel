@@ -9,3 +9,9 @@ A Android Apk Written in Python-kivy , Kivymd.
 -  Get is from here https://hub.docker.com/u/lightning283
 # Pyinstaller-Linux
 -  check Releases!!
+# Features
+-  Turns Flashlight ON/OFF
+-  Text-To-Speech
+-  Battery Status
+-  App-Launches for apps like FaceBook,Instagram,Youtube,WhatsApp.
+-  Wallpaper Changer.
