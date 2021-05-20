@@ -24,3 +24,4 @@ A Android Apk Written in Python-kivy , Kivymd.
 
 -  feel free to do whatever you want to improve this.
 -  I buit this for learning about python , kivy , kivymd and some android features.
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LIGHTNING283&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
