@@ -44,5 +44,7 @@ android.permissions = INTERNET, CAMERA, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_ST
 pyinstaller - -noconfirm - -onefile - -windowed - -hidden-import "kivymd pillow" - -collect-submodules "kivy" - -collect-submodules "kivymd" - -collect-submodules "ffpyplayer" - -collect-submodules "gstreamer" - -collect-submodules "ffpyplayer_codecs" - -collect-submodules "pillow"  "main.py"
 # Here is second version with icon.
 pyinstaller - -noconfirm - -onefile - -windowed - -hidden-import "kivymd pillow" - -collect-submodules "kivy" - -collect-submodules "kivymd" - -collect-submodules "ffpyplayer" - -collect-submodules "gstreamer" - -collect-submodules "ffpyplayer_codecs" - -collect-submodules "pillow" - -icon "res/icon.ico" "main.py"
+#new with ffpyplayer and plyer modules
+pyinstaller --noconfirm --onefile --windowed --hidden-import "kivymd pillow" --collect-submodules "kivy" --collect-submodules "kivymd" --collect-submodules "ffpyplayer" --collect-submodules "gstreamer" --collect-submodules "ffpyplayer_codecs" --collect-submodules "pillow" --collect-submodules "plyer"  "main.py"
 #to make presplash stay longer.edit line 398 in PythonActivity.java.
 /home/lightning/Documents/compiler-zone/.buildozer/android/platform/python-for-android/pythonforandroid/bootstraps/sdl2/build/src/main/java/org/kivy/android/
